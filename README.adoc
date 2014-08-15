@@ -1,0 +1,17 @@
+= ezmorph
+:version: 2.0.0.SNAPSHOT
+:linkattrs:
+:project-name: ezmorph
+
+image:http://img.shields.io/travis/aalmiray/{project-name}/master.svg["Build Status", link="https://travis-ci.org/aalmiray/{project-name}"]
+image:http://img.shields.io/coveralls/aalmiray/{project-name}/master.svg["Coverage Status", link="https://coveralls.io/r/aalmiray/{project-name}"]
+image:http://img.shields.io/:semver-{version}-blue.svg["Semantic Versioning", link="http://semver.org"]
+image:http://img.shields.io/badge/license-ASF2-blue.svg["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
+image:http://img.shields.io/badge/download-latest-bb00bb.svg[link="https://bintray.com/aalmiray/kordamp/{project-name}/_latestVersion"]
+
+---
+
+Simple Java library for transforming an Object to another Object.
+
+Refer to the link:http://aalmiray.github.io/{project-name}/[project guide, window="_blank"] for
+further information on configuration and usage.

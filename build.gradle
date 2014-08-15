@@ -1,0 +1,70 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+
+    dependencies {
+        classpath 'net.saliman:gradle-cobertura-plugin:2.2.4'
+        classpath 'org.kt3k.gradle.plugin:coveralls-gradle-plugin:2.0.0'
+        classpath 'nl.javadude.gradle.plugins:license-gradle-plugin:0.11.0'
+        classpath 'com.jfrog.bintray.gradle:gradle-bintray-plugin:0.5'
+        classpath 'org.ajoberstar:gradle-git:0.9.0'
+        classpath 'org.kordamp.gradle:stats-gradle-plugin:0.1.1'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.5-beta-6'
+    }
+}
+
+apply plugin: 'idea'
+apply plugin: 'java'
+apply plugin: 'com.github.kt3k.coveralls'
+apply plugin: 'build-dashboard'
+apply plugin: 'org.kordamp.gradle.stats'
+apply plugin: 'com.github.ben-manes.versions'
+apply from: 'gradle/publishing.gradle'
+apply from: 'gradle/code-coverage.gradle'
+apply from: 'gradle/code-quality.gradle'
+
+repositories {
+    jcenter()
+}
+
+dependencies {
+    compile('commons-lang:commons-lang:2.6') {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
+    compile('commons-beanutils:commons-beanutils:1.9.2') {
+        exclude group: 'commons-logging', module: 'commons-logging'
+    }
+    compile 'org.slf4j:slf4j-api:1.7.7'
+    compile 'org.slf4j:jcl-over-slf4j:1.7.7'
+    compile 'junit:junit:4.11'
+
+    testRuntime 'org.slf4j:slf4j-simple:1.7.7'
+}
+
+task sourceJar(type: Jar) {
+    group 'Build'
+    description 'An archive of the source code'
+    classifier 'sources'
+    from sourceSets.main.allSource
+}
+
+jar.finalizedBy sourceJar
+
+artifacts {
+    sourceJar
+}
+
+gradle.taskGraph.whenReady {
+    def createIfNotExists = { File dir ->
+        if (!dir.exists()) {
+            dir.mkdirs()
+        }
+    }
+
+    String sourceSetName = project.plugins.hasPlugin('groovy') ? 'groovy' : 'java'
+    sourceSets.main[sourceSetName].srcDirs.each(createIfNotExists)
+    sourceSets.test[sourceSetName].srcDirs.each(createIfNotExists)
+    sourceSets.main.resources.srcDirs.each(createIfNotExists)
+    sourceSets.test.resources.srcDirs.each(createIfNotExists)
+}
