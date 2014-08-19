@@ -29,7 +29,6 @@ import java.io.Serializable;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -50,26 +49,26 @@ public final class MorphDynaClass implements DynaClass, Serializable {
 
     private static final long serialVersionUID = -613214016860871560L;
 
-    private Map attributes;
+    private Map<String, Object> attributes;
     private Class beanClass;
     private DynaProperty dynaProperties[];
     private String name;
-    private Map properties = new HashMap();
+    private Map<String, DynaProperty> properties = new HashMap<String, DynaProperty>();
     private Class type;
 
-    public MorphDynaClass(Map attributes) {
+    public MorphDynaClass(Map<String, Object> attributes) {
         this(null, null, attributes);
     }
 
-    public MorphDynaClass(Map attributes, boolean exceptionOnEmptyAttributes) {
+    public MorphDynaClass(Map<String, Object> attributes, boolean exceptionOnEmptyAttributes) {
         this(null, null, attributes, exceptionOnEmptyAttributes);
     }
 
-    public MorphDynaClass(String name, Class type, Map attributes) {
+    public MorphDynaClass(String name, Class type, Map<String, Object> attributes) {
         this(name, type, attributes, false);
     }
 
-    public MorphDynaClass(String name, Class type, Map attributes,
+    public MorphDynaClass(String name, Class type, Map<String, Object> attributes,
                           boolean exceptionOnEmptyAttributes) {
         if (name == null) {
             name = "MorphDynaClass";
@@ -84,7 +83,7 @@ public final class MorphDynaClass implements DynaClass, Serializable {
             if (exceptionOnEmptyAttributes) {
                 throw new MorphException("Attributes map is null or empty.");
             } else {
-                attributes = new HashMap();
+                attributes = new HashMap<String, Object>();
             }
         }
         this.name = name;
@@ -130,7 +129,7 @@ public final class MorphDynaClass implements DynaClass, Serializable {
             throw new MorphException("Unnespecified bean property name");
 
         }
-        return (DynaProperty) properties.get(propertyName);
+        return properties.get(propertyName);
     }
 
     public String getName() {
@@ -140,9 +139,9 @@ public final class MorphDynaClass implements DynaClass, Serializable {
     public int hashCode() {
         HashCodeBuilder builder = new HashCodeBuilder().append(name)
             .append(type);
-        for (int i = 0; i < dynaProperties.length; i++) {
-            builder.append(this.dynaProperties[i].getName());
-            builder.append(this.dynaProperties[i].getType());
+        for (DynaProperty dynaProperty : dynaProperties) {
+            builder.append(dynaProperty.getName());
+            builder.append(dynaProperty.getType());
         }
         return builder.toHashCode();
     }
@@ -160,10 +159,7 @@ public final class MorphDynaClass implements DynaClass, Serializable {
         MorphDynaBean dynaBean = (MorphDynaBean) getBeanClass().newInstance();
         dynaBean.setDynaBeanClass(this);
         dynaBean.setMorpherRegistry(morpherRegistry);
-        Iterator keys = attributes.keySet()
-            .iterator();
-        while (keys.hasNext()) {
-            String key = (String) keys.next();
+        for (String key : attributes.keySet()) {
             dynaBean.set(key, null);
         }
         return dynaBean;
@@ -187,13 +183,11 @@ public final class MorphDynaClass implements DynaClass, Serializable {
         this.beanClass = this.type;
 
         try {
-            Iterator entries = attributes.entrySet()
-                .iterator();
+
             dynaProperties = new DynaProperty[attributes.size()];
             int i = 0;
-            while (entries.hasNext()) {
-                Map.Entry entry = (Map.Entry) entries.next();
-                String pname = (String) entry.getKey();
+            for (Map.Entry<String, Object> entry : attributes.entrySet()) {
+                String pname = entry.getKey();
                 Object pclass = entry.getValue();
                 DynaProperty dynaProperty = null;
                 if (pclass instanceof String) {

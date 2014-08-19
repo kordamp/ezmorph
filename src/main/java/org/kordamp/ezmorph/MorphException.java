@@ -15,8 +15,6 @@
  */
 package org.kordamp.ezmorph;
 
-import org.apache.commons.lang.exception.NestableRuntimeException;
-
 /**
  * A <strong>MorphException</strong> indicates that a call to
  * <code>Morpher.morph()</code> has failed to complete successfully.<br>
@@ -24,9 +22,7 @@ import org.apache.commons.lang.exception.NestableRuntimeException;
  *
  * @author Andres Almiray
  */
-public class MorphException extends NestableRuntimeException {
-    private static final long serialVersionUID = -540093801787033824L;
-
+public class MorphException extends RuntimeException {
     // ----------------------------------------------------------- Constructors
 
     /**

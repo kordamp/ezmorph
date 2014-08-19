@@ -61,11 +61,8 @@ public class MapToDateMorpher extends AbstractObjectMorpher {
         if (isUseDefault() && other.isUseDefault()) {
             builder.append(getDefaultValue(), other.getDefaultValue());
             return builder.isEquals();
-        } else if (!isUseDefault() && !other.isUseDefault()) {
-            return builder.isEquals();
-        } else {
-            return false;
         }
+        return !isUseDefault() && !other.isUseDefault() && builder.isEquals();
     }
 
     /**

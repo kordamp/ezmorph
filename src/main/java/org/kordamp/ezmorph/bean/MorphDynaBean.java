@@ -271,31 +271,28 @@ public final class MorphDynaBean implements DynaBean, Serializable {
         if (assignable) {
             return true;
         }
-        assignable = (dest == Boolean.TYPE && src == Boolean.class) ? true : assignable;
-        assignable = (dest == Byte.TYPE && src == Byte.class) ? true : assignable;
-        assignable = (dest == Character.TYPE && src == Character.class) ? true : assignable;
-        assignable = (dest == Short.TYPE && src == Short.class) ? true : assignable;
-        assignable = (dest == Integer.TYPE && src == Integer.class) ? true : assignable;
-        assignable = (dest == Long.TYPE && src == Long.class) ? true : assignable;
-        assignable = (dest == Float.TYPE && src == Float.class) ? true : assignable;
-        assignable = (dest == Double.TYPE && src == Double.class) ? true : assignable;
+        assignable = (dest == Boolean.TYPE && src == Boolean.class) || assignable;
+        assignable = (dest == Byte.TYPE && src == Byte.class) || assignable;
+        assignable = (dest == Character.TYPE && src == Character.class) || assignable;
+        assignable = (dest == Short.TYPE && src == Short.class) || assignable;
+        assignable = (dest == Integer.TYPE && src == Integer.class) || assignable;
+        assignable = (dest == Long.TYPE && src == Long.class) || assignable;
+        assignable = (dest == Float.TYPE && src == Float.class) || assignable;
+        assignable = (dest == Double.TYPE && src == Double.class) || assignable;
 
         if (src == Double.TYPE || Double.class.isAssignableFrom(src)) {
-            assignable = (isByte(dest) || isShort(dest) || isInteger(dest) || isLong(dest) || isFloat(dest)) ? true
-                : assignable;
+            assignable = (isByte(dest) || isShort(dest) || isInteger(dest) || isLong(dest) || isFloat(dest)) || assignable;
         }
         if (src == Float.TYPE || Float.class.isAssignableFrom(src)) {
-            assignable = (isByte(dest) || isShort(dest) || isInteger(dest) || isLong(dest)) ? true
-                : assignable;
+            assignable = (isByte(dest) || isShort(dest) || isInteger(dest) || isLong(dest)) || assignable;
         }
         if (src == Long.TYPE || Long.class.isAssignableFrom(src)) {
-            assignable = (isByte(dest) || isShort(dest) || isInteger(dest)) ? true : assignable;
+            assignable = (isByte(dest) || isShort(dest) || isInteger(dest)) || assignable;
         }
-        if (src == Integer.TYPE || Integer.class.isAssignableFrom(src)) {
-            assignable = (isByte(dest) || isShort(dest)) ? true : assignable;
-        }
+        if (src == Integer.TYPE || Integer.class.isAssignableFrom(src))
+            assignable = (isByte(dest) || isShort(dest)) || assignable;
         if (src == Short.TYPE || Short.class.isAssignableFrom(src)) {
-            assignable = (isByte(dest)) ? true : assignable;
+            assignable = (isByte(dest)) || assignable;
         }
 
         return assignable;

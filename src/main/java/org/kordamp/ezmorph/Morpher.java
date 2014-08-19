@@ -17,7 +17,7 @@ package org.kordamp.ezmorph;
 
 /**
  * Marker interface for morphers.<br>
- * All implementations must have a <code>morph( Object value )</code> method
+ * All implementations must have a <code>morph(Object value)</code> method
  * that returns the appropiate morphed value.
  *
  * @author Andres Almiray

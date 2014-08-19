@@ -21,7 +21,6 @@ import java.io.Serializable;
 import java.lang.reflect.Method;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 
@@ -39,7 +38,7 @@ import java.util.Map;
  */
 public class MorpherRegistry implements Serializable {
     private static final long serialVersionUID = -3894767123320768419L;
-    private Map morphers = new HashMap();
+    private Map<Class<?>, List<Morpher>> morphers = new HashMap<Class<?>, List<Morpher>>();
 
     public MorpherRegistry() {
 
@@ -58,7 +57,7 @@ public class MorpherRegistry implements Serializable {
      * @param type the target type the Morphers morph to
      */
     public synchronized void clear(Class<?> type) {
-        List registered = (List) morphers.get(type);
+        List<Morpher> registered = morphers.get(type);
         if (registered != null) {
             morphers.remove(type);
         }
@@ -72,7 +71,7 @@ public class MorpherRegistry implements Serializable {
      * @param morpher the target Morpher to remove
      */
     public synchronized void deregisterMorpher(Morpher morpher) {
-        List registered = (List) morphers.get(morpher.morphsTo());
+        List<Morpher> registered = morphers.get(morpher.morphsTo());
         if (registered != null && !registered.isEmpty()) {
             registered.remove(morpher);
             if (registered.isEmpty()) {
@@ -89,12 +88,12 @@ public class MorpherRegistry implements Serializable {
      * @param clazz the target class for which a Morpher may be associated
      */
     public synchronized Morpher getMorpherFor(Class<?> clazz) {
-        List registered = (List) morphers.get(clazz);
+        List<Morpher> registered = morphers.get(clazz);
         if (registered == null || registered.isEmpty()) {
             // no morpher registered for clazz
             return IdentityObjectMorpher.getInstance();
         } else {
-            return (Morpher) registered.get(0);
+            return registered.get(0);
         }
     }
 
@@ -107,15 +106,15 @@ public class MorpherRegistry implements Serializable {
      *              associated
      */
     public synchronized Morpher[] getMorphersFor(Class<?> clazz) {
-        List registered = (List) morphers.get(clazz);
+        List<Morpher> registered = morphers.get(clazz);
         if (registered == null || registered.isEmpty()) {
             // no morphers registered for clazz
             return new Morpher[]{IdentityObjectMorpher.getInstance()};
         } else {
             Morpher[] morphs = new Morpher[registered.size()];
             int k = 0;
-            for (Iterator i = registered.iterator(); i.hasNext(); ) {
-                morphs[k++] = (Morpher) i.next();
+            for (Morpher morpher : registered) {
+                morphs[k++] = morpher;
             }
             return morphs;
         }
@@ -142,7 +141,7 @@ public class MorpherRegistry implements Serializable {
                 try {
                     Method morphMethod = morpher.getClass()
                         .getDeclaredMethod("morph", new Class[]{Object.class});
-                    return morphMethod.invoke(morpher, new Object[]{value});
+                    return morphMethod.invoke(morpher, value);
                 } catch (Exception e) {
                     throw new MorphException(e);
                 }
@@ -159,7 +158,7 @@ public class MorpherRegistry implements Serializable {
                     try {
                         Method morphMethod = morpher.getClass()
                             .getDeclaredMethod("morph", new Class[]{Object.class});
-                        return morphMethod.invoke(morpher, new Object[]{value});
+                        return morphMethod.invoke(morpher, value);
                     } catch (Exception e) {
                         throw new MorphException(e);
                     }
@@ -192,9 +191,9 @@ public class MorpherRegistry implements Serializable {
      *                 registered morphers for the target type
      */
     public synchronized void registerMorpher(Morpher morpher, boolean override) {
-        List registered = (List) morphers.get(morpher.morphsTo());
+        List<Morpher> registered = morphers.get(morpher.morphsTo());
         if (override || registered == null) {
-            registered = new ArrayList();
+            registered = new ArrayList<Morpher>();
             morphers.put(morpher.morphsTo(), registered);
         }
         if (!registered.contains(morpher)) {

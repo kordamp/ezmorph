@@ -86,7 +86,7 @@ public final class ObjectArrayMorpher extends AbstractArrayMorpher {
                         if (value != null && !morpher.supports(value.getClass())) {
                             throw new MorphException(value.getClass() + " is not supported");
                         }
-                        Object morphed = morphMethod.invoke(morpher, new Object[]{value});
+                        Object morphed = morphMethod.invoke(morpher, value);
                         Array.set(result, index, morphed);
                     } catch (MorphException me) {
                         throw me;
@@ -111,7 +111,7 @@ public final class ObjectArrayMorpher extends AbstractArrayMorpher {
     }
 
     public boolean supports(Class<?> clazz) {
-        if (clazz != null && !clazz.isArray()) {
+        if (clazz == null || !clazz.isArray()) {
             return false;
         }
         while (clazz.isArray()) {

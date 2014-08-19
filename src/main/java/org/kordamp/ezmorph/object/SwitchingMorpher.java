@@ -21,7 +21,6 @@ import org.kordamp.ezmorph.MorpherRegistry;
 import org.kordamp.ezmorph.ObjectMorpher;
 
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
@@ -33,10 +32,10 @@ import java.util.Map;
  * @author Andres Almiray
  */
 public class SwitchingMorpher implements ObjectMorpher {
-    private Map classMap = new HashMap();
+    private Map<Class<?>, Class<?>> classMap = new HashMap<Class<?>, Class<?>>();
     private MorpherRegistry morpherRegistry;
 
-    public SwitchingMorpher(Map classMap, MorpherRegistry morpherRegistry) {
+    public SwitchingMorpher(Map<Class<?>, Class<?>> classMap, MorpherRegistry morpherRegistry) {
         this.morpherRegistry = morpherRegistry;
         if (classMap == null || classMap.isEmpty()) {
             throw new MorphException("Must specify at least one mapping");
@@ -52,7 +51,7 @@ public class SwitchingMorpher implements ObjectMorpher {
             return false;
         }
 
-        if (!(obj instanceof NumberMorpher)) {
+        if (!(obj instanceof SwitchingMorpher)) {
             return false;
         }
 
@@ -60,9 +59,7 @@ public class SwitchingMorpher implements ObjectMorpher {
         if (classMap.size() != other.classMap.size()) {
             return false;
         }
-        for (Iterator entries = classMap.entrySet()
-            .iterator(); entries.hasNext(); ) {
-            Map.Entry entry = (Map.Entry) entries.next();
+        for (Map.Entry<Class<?>, Class<?>> entry : classMap.entrySet()) {
             if (!other.classMap.containsKey(entry.getKey())) {
                 return false;
             }
@@ -76,9 +73,7 @@ public class SwitchingMorpher implements ObjectMorpher {
 
     public int hashCode() {
         HashCodeBuilder builder = new HashCodeBuilder();
-        for (Iterator entries = classMap.entrySet()
-            .iterator(); entries.hasNext(); ) {
-            Map.Entry entry = (Map.Entry) entries.next();
+        for (Map.Entry<Class<?>, Class<?>> entry : classMap.entrySet()) {
             builder.append(entry.getKey());
             builder.append(entry.getValue());
         }

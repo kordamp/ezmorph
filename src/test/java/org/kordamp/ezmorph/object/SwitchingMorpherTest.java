@@ -75,7 +75,7 @@ public class SwitchingMorpherTest extends TestCase {
     }
 
     protected void setUp() throws Exception {
-        Map classMap = new HashMap();
+        Map<Class<?>, Class<?>> classMap = new HashMap<Class<?>, Class<?>>();
         classMap.put(WrapperA.class, BeanA.class);
         classMap.put(WrapperB.class, BeanB.class);
         MorpherRegistry morpherRegistry = new MorpherRegistry();

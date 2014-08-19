@@ -82,9 +82,8 @@ public final class ObjectListMorpher extends AbstractObjectMorpher {
             throw new MorphException(value.getClass() + " is not supported");
         }
 
-        List list = new ArrayList();
-        for (Iterator i = ((List) value).iterator(); i.hasNext(); ) {
-            Object object = i.next();
+        List<Object> list = new ArrayList<Object>();
+        for (Object object : ((List) value)) {
             if (object == null) {
                 if (isUseDefault()) {
                     list.add(defaultValue);
@@ -96,7 +95,7 @@ public final class ObjectListMorpher extends AbstractObjectMorpher {
                     throw new MorphException(object.getClass() + " is not supported");
                 }
                 try {
-                    list.add(morphMethod.invoke(morpher, new Object[]{object}));
+                    list.add(morphMethod.invoke(morpher, object));
                 } catch (MorphException me) {
                     throw me;
                 } catch (Exception e) {
