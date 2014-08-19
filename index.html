@@ -6,16 +6,16 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="generator" content="Asciidoctor 1.5.0.preview.7">
 <meta name="author" content="Andres Almiray">
-<title>EZMorph 2.0.0-SNAPSHOT</title>
+<title>EZMorph</title>
 <link rel="stylesheet" href="./asciidoctor.css">
 <link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
-<h1>EZMorph 2.0.0-SNAPSHOT</h1>
+<h1>EZMorph</h1>
 <span id="author" class="author">Andres Almiray</span><br>
-<span id="revnumber">version 2.0.0-SNAPSHOT</span>
+<span id="revnumber">version 2.0.0</span>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
@@ -33,7 +33,8 @@
 <li><a href="#_maven">3.2. Maven</a></li>
 </ul>
 </li>
-<li><a href="#_links">4. Links</a></li>
+<li><a href="#_compatibility">4. Compatibility</a></li>
+<li><a href="#_links">5. Links</a></li>
 </ul>
 </div>
 </div>
@@ -200,7 +201,7 @@ assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="i
 <div class="listingblock">
 <div class="content">
 <pre class="CodeRay nowrap"><code class="groovy language-groovy">dependencies {
-    compile 'org.kordamp.ezmorph:ezmorph:2.0.0-SNAPSHOT'
+    compile 'org.kordamp.ezmorph:ezmorph:2.0.0'
 }</code></pre>
 </div>
 </div>
@@ -212,7 +213,7 @@ assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="i
 <pre class="CodeRay nowrap"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.kordamp.ezmorph<span class="tag">&lt;/groupId&gt;</span>
     <span class="tag">&lt;artifactId&gt;</span>ezmorph<span class="tag">&lt;/artifactId&gt;</span>
-    <span class="tag">&lt;version&gt;</span>2.0.0-SNAPSHOT<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;version&gt;</span>2.0.0<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -220,7 +221,28 @@ assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="i
 </div>
 </div>
 <div class="sect1">
-<h2 id="_links"><a class="anchor" href="#_links"></a>4. Links</h2>
+<h2 id="_compatibility"><a class="anchor" href="#_compatibility"></a>4. Compatibility</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The following lists summarizes the differences between EZMorph 2.x and 1.x</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>All classes have moved from package <code>net.sf.ezmorph</code> to <code>org.kordamp.ezmorph</code>.</p>
+</li>
+<li>
+<p>JDK5 is the new binary base line.</p>
+</li>
+<li>
+<p>Java Generics have been added to method signatures.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links"><a class="anchor" href="#_links"></a>5. Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
 <p><a href="api/index.html" target="_blank">Javadoc</a></p>
@@ -230,8 +252,8 @@ assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="i
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 2.0.0-SNAPSHOT<br>
-Last updated 2014-08-19 15:34:15 CEST
+Version 2.0.0<br>
+Last updated 2014-08-19 15:42:55 CEST
 </div>
 </div>
 </body>
