@@ -1,0 +1,6 @@
+org.kordamp.ezmorph
+org.kordamp.ezmorph.array
+org.kordamp.ezmorph.bean
+org.kordamp.ezmorph.object
+org.kordamp.ezmorph.primitive
+org.kordamp.ezmorph.test

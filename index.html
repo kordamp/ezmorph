@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="generator" content="Asciidoctor 1.5.0.preview.7">
+<meta name="author" content="Andres Almiray">
+<title>EZMorph 2.0.0-SNAPSHOT</title>
+<link rel="stylesheet" href="./asciidoctor.css">
+<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+<link rel="stylesheet" href="./coderay-asciidoctor.css">
+</head>
+<body class="book toc2 toc-left">
+<div id="header">
+<h1>EZMorph 2.0.0-SNAPSHOT</h1>
+<span id="author" class="author">Andres Almiray</span><br>
+<span id="revnumber">version 2.0.0-SNAPSHOT</span>
+<div id="toc" class="toc2">
+<div id="toctitle">Table of Contents</div>
+<ul class="sectlevel1">
+<li><a href="#_introduction">1. Introduction</a></li>
+<li>
+<ul class="sectlevel2">
+<li><a href="#_related_projects">1.1. Related projects</a></li>
+</ul>
+</li>
+<li><a href="#_usage">2. Usage</a></li>
+<li><a href="#_configuration">3. Build Configuration</a></li>
+<li>
+<ul class="sectlevel2">
+<li><a href="#_gradle">3.1. Gradle</a></li>
+<li><a href="#_maven">3.2. Maven</a></li>
+</ul>
+</li>
+<li><a href="#_links">4. Links</a></li>
+</ul>
+</div>
+</div>
+<div id="content">
+<div class="sect1">
+<h2 id="_introduction"><a class="anchor" href="#_introduction"></a>1. Introduction</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>EZMorph is simple java library for transforming an Object to another Object.</p>
+</div>
+<div class="paragraph">
+<p>EZMorph&#8217;s key strenghts are:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Supports transformations for primitives and Objects</p>
+</li>
+<li>
+<p>Supports transformations for multidimensional arrays</p>
+</li>
+<li>
+<p>Supports transformations with DynaBeans</p>
+</li>
+<li>
+<p>Small memory footprint (~80K)</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>EZMorph comes with another feature: <code>ArrayAssertions</code>. JUnit 3.x does not have an <code>assertEquals()</code> method for asserting
+array equality, and JUnit 4.x has a limited one (it only supports Object[] not primitive arrays). With ArrayAssertions
+is possible to compare a boolean[] with a boolean[] or even a Boolean[], an those arrays can be multidimensional too.</p>
+</div>
+<div class="paragraph">
+<p>EZMorph began life as the converter package on <a href="https://github.com/aalmiray/json-lib" target="_blank">Json-lib</a> but seeing
+that the features provided were more generic than JSON parsing, it became a project on its own.</p>
+</div>
+<div class="sect2">
+<h3 id="_related_projects"><a class="anchor" href="#_related_projects"></a>1.1. Related projects</h3>
+<div class="paragraph">
+<p>There are other projects that perform Objetc to Object conversion:</p>
+</div>
+<table class="tableblock frame-all grid-all" style="width: 100%;">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 75%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">Project Name</th>
+<th class="tableblock halign-left valign-top">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/proper/commons-beanutils/" target="_blank">Commons Beanutils</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ConvertUtils</code>: Utility methods for converting scalar String values to objects of the specified Class, String arrays
+  to arrays of the specified Class.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/proper/commons-lang/" target="_blank">Commons Lang</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>ArrayUtils</code>: Operations on arrays, primitive arrays (like int[]) and primitive wrapper arrays (like Integer[]).</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/dormant/convert/" target="_blank">Commons Convert</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"> Commons-Convert aims to provide a single library dedicated to the task of converting an object of one type to another.
+  The first stage will focus on Object to String and String to Object conversions.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://morph.sourceforge.net/" target="_blank">Morph</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Morph is a Java framework that eases the internal interoperability of an application. As information flows through an
+  application, it undergoes multiple transformations. Morph provides a standard way to implement these transformations.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://gleamynode.net/dev/lorentz/docs/index.html" target="_blank">Lorentz</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Lorentz is a generic object-to-object conversion framework. It provides a simple API to convert a Java objects of one
+  type into an object of another type.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://projects.spring.io/spring-framework/" target="_blank">Spring Framework</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Spring has an excellent support for PropertyEditors, that can also be used to transform Objects to/from Strings.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://dozer.sourceforge.net/" target="_blank">Dozer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Dozer is a powerful, yet simple Java Bean to Java Bean mapper that recursively copies data from one object to another.
+  Typically, these Java Beans will be of different complex types.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_usage"><a class="anchor" href="#_usage"></a>2. Usage</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Morphing Objects is as easy as calling <code>morph()</code> on a <code>Morpher</code> or <code>ObjectMorpher</code> instance. You may have noticed that
+<code>Morpher</code> does not have a <code>morph()</code> method but <code>ObjectMorpher</code> does, that is because <code>Morpher</code> is used on primitive Morphers
+and we want to avoid the prize of auto-boxing.</p>
+</div>
+<div class="paragraph">
+<p>Using EZMorph is as straight forward as shown in the next example</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="java language-java"><span class="type">int</span> i = <span class="keyword">new</span> IntMorpher().morph(<span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>);
+assertEquals(<span class="integer">123</span>, i); <span class="comment">// true!</span>
+
+<span class="predefined-type">String</span> str = <span class="keyword">new</span> StringMorpher().morph(<span class="predefined-type">Integer</span>.valueOf(<span class="integer">123</span>));
+assertEquals(<span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>, str); <span class="comment">// true!</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>You can morph arrays too. It doesn&#8217;t matter how many dimensions the arrays may have, EZMorph will take care of the rest.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="java language-java"><span class="predefined-type">Boolean</span><span class="type">[]</span> bools = <span class="keyword">new</span> ObjectArrayMorpher(
+                        <span class="keyword">new</span> BooleanObjectMorpher()).morph(
+                             <span class="keyword">new</span> <span class="predefined-type">String</span><span class="type">[]</span>{<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span>});
+assertEquals(<span class="predefined-type">Boolean</span>.TRUE, bools[<span class="integer">0</span>]);  <span class="comment">// true!</span>
+assertEquals(<span class="predefined-type">Boolean</span>.FALSE, bools[<span class="integer">1</span>]); <span class="comment">// true!</span></code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>EZMorph can also transform beans of different types, even <code>DynaBeans</code> from apache commons-beanutils</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="java language-java"><span class="comment">// will morph a BeanA into a BeanB, where a property of BeanB is also a property of BeanA</span>
+BeanA beanA = ... <span class="comment">// initialized elsewhere</span>
+morpherRegistry.registerMorpher(<span class="keyword">new</span> BeanMorpher(BeanB.class, morpherRegistry));
+BeanB beanB = (BeanB) morpherRegistry.morph(BeanB.class, beanA);
+
+<span class="comment">// will morph a DynaBean into a MyBean instance</span>
+DynaBean dynaBean = ... <span class="comment">// initialized elsewhere</span>
+morpherRegistry.registerMorpher( <span class="keyword">new</span> BeanMorpher(MyBean.class, morpherRegistry));
+MyBean myBean = (MyBean) morpherRegistry.moprh(MyBean.class, dynaBean);</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>EZMorph comes with a handy class for working with Morphers named <code>MorpherRegistry</code>. It works much like ConvertUtils on
+commons-beanutils. This class is not a singleton like ConvertUtils, so it is possible to have multiple registries with
+different Morphers that support the same target class, but take different default values or support different source classes.
+Another convenient class is <code>MorphUtils</code>, you can register standard Morphers to any MorpherRegistry with it.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay"><code class="java language-java">MorpherRegistry morperRegistry = <span class="keyword">new</span> MorpherRegistry();
+MorphUtils.registerStandardMorphers(morpherRegistry);
+<span class="predefined-type">Integer</span> i = (<span class="predefined-type">Integer</span>) morpherRegistry.morph(<span class="predefined-type">Integer</span>.class, <span class="string"><span class="delimiter">&quot;</span><span class="content">A</span><span class="delimiter">&quot;</span></span>);
+<span class="comment">// &quot;A&quot; is not a number, so morph() returns Integer(0)</span>
+assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="integer">0</span>), i);</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_configuration"><a class="anchor" href="#_configuration"></a>3. Build Configuration</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="_gradle"><a class="anchor" href="#_gradle"></a>3.1. Gradle</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay nowrap"><code class="groovy language-groovy">dependencies {
+    compile 'org.kordamp.ezmorph:ezmorph:2.0.0-SNAPSHOT'
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="_maven"><a class="anchor" href="#_maven"></a>3.2. Maven</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="CodeRay nowrap"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
+    <span class="tag">&lt;groupId&gt;</span>org.kordamp.ezmorph<span class="tag">&lt;/groupId&gt;</span>
+    <span class="tag">&lt;artifactId&gt;</span>ezmorph<span class="tag">&lt;/artifactId&gt;</span>
+    <span class="tag">&lt;version&gt;</span>2.0.0-SNAPSHOT<span class="tag">&lt;/version&gt;</span>
+<span class="tag">&lt;/dependency&gt;</span></code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="_links"><a class="anchor" href="#_links"></a>4. Links</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p><a href="api/index.html" target="_blank">Javadoc</a></p>
+</div>
+</div>
+</div>
+</div>
+<div id="footer">
+<div id="footer-text">
+Version 2.0.0-SNAPSHOT<br>
+Last updated 2014-08-19 15:34:15 CEST
+</div>
+</div>
+</body>
+</html>
