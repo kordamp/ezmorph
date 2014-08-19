@@ -1,4 +1,5 @@
 apply plugin: 'org.asciidoctor.gradle.asciidoctor'
+apply plugin: 'github-pages'
 
 javadoc {
     excludes = ['**/*.html', 'META-INF/**']
@@ -58,3 +59,20 @@ task guideZip(type: Zip, dependsOn: guide) {
     baseName = "${project.name}-guide"
     from "$buildDir/guide"
 }
+
+if (!project.hasProperty('githubUsername')) ext.githubUsername = ''
+if (!project.hasProperty('githubPassword')) ext.githubPassword = ''
+
+githubPages {
+    repoUri = project.project_url
+    pages {
+        from guide.outputs.files
+    }
+
+    credentials {
+        username = githubUsername
+        password = githubPassword
+    }
+}
+
+publishGhPages.dependsOn(guide)
