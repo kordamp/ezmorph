@@ -1,0 +1,57 @@
+
+[[_introduction]]
+= Introduction
+
+EZMorph is simple java library for transforming an Object to another Object.
+
+EZMorph's key strenghts are:
+
+ * Supports transformations for primitives and Objects
+ * Supports transformations for multidimensional arrays
+ * Supports transformations with DynaBeans
+ * Small memory footprint (~80K)
+
+EZMorph comes with another feature: `ArrayAssertions`. JUnit 3.x does not have an `assertEquals()` method for asserting
+array equality, and JUnit 4.x has a limited one (it only supports Object[] not primitive arrays). With ArrayAssertions
+is possible to compare a boolean[] with a boolean[] or even a Boolean[], an those arrays can be multidimensional too.
+
+EZMorph began life as the converter package on https://github.com/aalmiray/json-lib[Json-lib, window="_blank"] but seeing
+that the features provided were more generic than JSON parsing, it became a project on its own.
+
+== Related projects
+
+There are other projects that perform Objetc to Object conversion:
+
+[cols="1,3", options="header"]
+|===
+
+| Project Name | Description
+
+| http://commons.apache.org/proper/commons-beanutils/["Commons Beanutils", window="_blank"]
+| `ConvertUtils`: Utility methods for converting scalar String values to objects of the specified Class, String arrays
+  to arrays of the specified Class.
+
+| http://commons.apache.org/proper/commons-lang/["Commons Lang", window="_blank"]
+| `ArrayUtils`: Operations on arrays, primitive arrays (like int[]) and primitive wrapper arrays (like Integer[]).
+
+| http://commons.apache.org/dormant/convert/["Commons Convert", window="_blank"]
+| Commons-Convert aims to provide a single library dedicated to the task of converting an object of one type to another.
+  The first stage will focus on Object to String and String to Object conversions.
+
+| http://morph.sourceforge.net/[Morph, window="_blank"]
+| Morph is a Java framework that eases the internal interoperability of an application. As information flows through an
+  application, it undergoes multiple transformations. Morph provides a standard way to implement these transformations.
+
+| http://gleamynode.net/dev/lorentz/docs/index.html["Lorentz", window="_blank"]
+| Lorentz is a generic object-to-object conversion framework. It provides a simple API to convert a Java objects of one
+  type into an object of another type.
+
+| http://projects.spring.io/spring-framework/["Spring Framework", window="_blank"]
+| Spring has an excellent support for PropertyEditors, that can also be used to transform Objects to/from Strings.
+
+| http://dozer.sourceforge.net/["Dozer", window="_blank"]
+| Dozer is a powerful, yet simple Java Bean to Java Bean mapper that recursively copies data from one object to another.
+  Typically, these Java Beans will be of different complex types.
+
+|===
+

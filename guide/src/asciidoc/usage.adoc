@@ -1,0 +1,59 @@
+
+[[_usage]]
+= Usage
+
+Morphing Objects is as easy as calling `morph()` on a `Morpher` or `ObjectMorpher` instance. You may have noticed that
+`Morpher` does not have a `morph()` method but `ObjectMorpher` does, that is because `Morpher` is used on primitive Morphers
+and we want to avoid the prize of auto-boxing.
+
+Using EZMorph is as straight forward as shown in the next example
+
+[source,java]
+----
+int i = new IntMorpher().morph("123");
+assertEquals(123, i); // true!
+
+String str = new StringMorpher().morph(Integer.valueOf(123));
+assertEquals("123", str); // true!
+----
+
+You can morph arrays too. It doesn't matter how many dimensions the arrays may have, EZMorph will take care of the rest.
+
+[source,java]
+----
+Boolean[] bools = new ObjectArrayMorpher(
+                        new BooleanObjectMorpher()).morph(
+                             new String[]{"true", "false"});
+assertEquals(Boolean.TRUE, bools[0]);  // true!
+assertEquals(Boolean.FALSE, bools[1]); // true!
+----
+
+EZMorph can also transform beans of different types, even `DynaBeans` from apache commons-beanutils
+
+[source,java]
+----
+// will morph a BeanA into a BeanB, where a property of BeanB is also a property of BeanA
+BeanA beanA = ... // initialized elsewhere
+morpherRegistry.registerMorpher(new BeanMorpher(BeanB.class, morpherRegistry));
+BeanB beanB = (BeanB) morpherRegistry.morph(BeanB.class, beanA);
+
+// will morph a DynaBean into a MyBean instance
+DynaBean dynaBean = ... // initialized elsewhere
+morpherRegistry.registerMorpher( new BeanMorpher(MyBean.class, morpherRegistry));
+MyBean myBean = (MyBean) morpherRegistry.moprh(MyBean.class, dynaBean);
+----
+
+EZMorph comes with a handy class for working with Morphers named `MorpherRegistry`. It works much like ConvertUtils on
+commons-beanutils. This class is not a singleton like ConvertUtils, so it is possible to have multiple registries with
+different Morphers that support the same target class, but take different default values or support different source classes.
+Another convenient class is `MorphUtils`, you can register standard Morphers to any MorpherRegistry with it.
+
+[source,java]
+----
+MorpherRegistry morperRegistry = new MorpherRegistry();
+MorphUtils.registerStandardMorphers(morpherRegistry);
+Integer i = (Integer) morpherRegistry.morph(Integer.class, "A");
+// "A" is not a number, so morph() returns Integer(0)
+assertEquals(Integer.valueOf(0), i);
+----
+
