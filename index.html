@@ -4,30 +4,31 @@
 <meta charset="utf-8">
 <!--[if IE]><meta http-equiv="X-UA-Compatible" content="IE=edge"><![endif]-->
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="generator" content="Asciidoctor 1.5.0.preview.7">
+<meta name="generator" content="Asciidoctor 1.5.8">
 <meta name="author" content="Andres Almiray">
 <title>EZMorph</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Open+Sans:300,300italic,400,400italic,600,600italic%7CNoto+Serif:400,400italic,700,700italic%7CDroid+Sans+Mono:400,700">
 <link rel="stylesheet" href="./asciidoctor.css">
-<link rel="stylesheet" href="http://cdnjs.cloudflare.com/ajax/libs/font-awesome/3.2.1/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="./coderay-asciidoctor.css">
 </head>
 <body class="book toc2 toc-left">
 <div id="header">
 <h1>EZMorph</h1>
+<div class="details">
 <span id="author" class="author">Andres Almiray</span><br>
-<span id="revnumber">version 2.0.0</span>
+<span id="revnumber">version 3.0.0</span>
+</div>
 <div id="toc" class="toc2">
 <div id="toctitle">Table of Contents</div>
 <ul class="sectlevel1">
-<li><a href="#_introduction">1. Introduction</a></li>
-<li>
+<li><a href="#_introduction">1. Introduction</a>
 <ul class="sectlevel2">
 <li><a href="#_related_projects">1.1. Related projects</a></li>
 </ul>
 </li>
 <li><a href="#_usage">2. Usage</a></li>
-<li><a href="#_configuration">3. Build Configuration</a></li>
-<li>
+<li><a href="#_configuration">3. Build Configuration</a>
 <ul class="sectlevel2">
 <li><a href="#_gradle">3.1. Gradle</a></li>
 <li><a href="#_maven">3.2. Maven</a></li>
@@ -70,7 +71,7 @@ array equality, and JUnit 4.x has a limited one (it only supports Object[] not p
 is possible to compare a boolean[] with a boolean[] or even a Boolean[], an those arrays can be multidimensional too.</p>
 </div>
 <div class="paragraph">
-<p>EZMorph began life as the converter package on <a href="https://github.com/aalmiray/json-lib" target="_blank">Json-lib</a> but seeing
+<p>EZMorph began life as the converter package on <a href="https://github.com/aalmiray/json-lib" target="_blank" rel="noopener">Json-lib</a> but seeing
 that the features provided were more generic than JSON parsing, it became a project on its own.</p>
 </div>
 <div class="sect2">
@@ -78,7 +79,7 @@ that the features provided were more generic than JSON parsing, it became a proj
 <div class="paragraph">
 <p>There are other projects that perform Objetc to Object conversion:</p>
 </div>
-<table class="tableblock frame-all grid-all" style="width: 100%;">
+<table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
 <col style="width: 75%;">
@@ -91,35 +92,35 @@ that the features provided were more generic than JSON parsing, it became a proj
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/proper/commons-beanutils/" target="_blank">Commons Beanutils</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/proper/commons-beanutils/" target="_blank" rel="noopener">Commons Beanutils</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ConvertUtils</code>: Utility methods for converting scalar String values to objects of the specified Class, String arrays
   to arrays of the specified Class.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/proper/commons-lang/" target="_blank">Commons Lang</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/proper/commons-lang/" target="_blank" rel="noopener">Commons Lang</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>ArrayUtils</code>: Operations on arrays, primitive arrays (like int[]) and primitive wrapper arrays (like Integer[]).</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/dormant/convert/" target="_blank">Commons Convert</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://commons.apache.org/dormant/convert/" target="_blank" rel="noopener">Commons Convert</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock"> Commons-Convert aims to provide a single library dedicated to the task of converting an object of one type to another.
   The first stage will focus on Object to String and String to Object conversions.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://morph.sourceforge.net/" target="_blank">Morph</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://morph.sourceforge.net/" target="_blank" rel="noopener">Morph</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Morph is a Java framework that eases the internal interoperability of an application. As information flows through an
   application, it undergoes multiple transformations. Morph provides a standard way to implement these transformations.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://gleamynode.net/dev/lorentz/docs/index.html" target="_blank">Lorentz</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://gleamynode.net/dev/lorentz/docs/index.html" target="_blank" rel="noopener">Lorentz</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Lorentz is a generic object-to-object conversion framework. It provides a simple API to convert a Java objects of one
   type into an object of another type.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://projects.spring.io/spring-framework/" target="_blank">Spring Framework</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://projects.spring.io/spring-framework/" target="_blank" rel="noopener">Spring Framework</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Spring has an excellent support for PropertyEditors, that can also be used to transform Objects to/from Strings.</p></td>
 </tr>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://dozer.sourceforge.net/" target="_blank">Dozer</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="http://dozer.sourceforge.net/" target="_blank" rel="noopener">Dozer</a></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Dozer is a powerful, yet simple Java Bean to Java Bean mapper that recursively copies data from one object to another.
   Typically, these Java Beans will be of different complex types.</p></td>
 </tr>
@@ -141,7 +142,7 @@ and we want to avoid the prize of auto-boxing.</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="java language-java"><span class="type">int</span> i = <span class="keyword">new</span> IntMorpher().morph(<span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>);
+<pre class="CodeRay highlight"><code data-lang="java"><span class="type">int</span> i = <span class="keyword">new</span> IntMorpher().morph(<span class="string"><span class="delimiter">&quot;</span><span class="content">123</span><span class="delimiter">&quot;</span></span>);
 assertEquals(<span class="integer">123</span>, i); <span class="comment">// true!</span>
 
 <span class="predefined-type">String</span> str = <span class="keyword">new</span> StringMorpher().morph(<span class="predefined-type">Integer</span>.valueOf(<span class="integer">123</span>));
@@ -153,7 +154,7 @@ assertEquals(<span class="string"><span class="delimiter">&quot;</span><span cla
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="java language-java"><span class="predefined-type">Boolean</span><span class="type">[]</span> bools = <span class="keyword">new</span> ObjectArrayMorpher(
+<pre class="CodeRay highlight"><code data-lang="java"><span class="predefined-type">Boolean</span><span class="type">[]</span> bools = <span class="keyword">new</span> ObjectArrayMorpher(
                         <span class="keyword">new</span> BooleanObjectMorpher()).morph(
                              <span class="keyword">new</span> <span class="predefined-type">String</span><span class="type">[]</span>{<span class="string"><span class="delimiter">&quot;</span><span class="content">true</span><span class="delimiter">&quot;</span></span>, <span class="string"><span class="delimiter">&quot;</span><span class="content">false</span><span class="delimiter">&quot;</span></span>});
 assertEquals(<span class="predefined-type">Boolean</span>.TRUE, bools[<span class="integer">0</span>]);  <span class="comment">// true!</span>
@@ -165,7 +166,7 @@ assertEquals(<span class="predefined-type">Boolean</span>.FALSE, bools[<span cla
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="java language-java"><span class="comment">// will morph a BeanA into a BeanB, where a property of BeanB is also a property of BeanA</span>
+<pre class="CodeRay highlight"><code data-lang="java"><span class="comment">// will morph a BeanA into a BeanB, where a property of BeanB is also a property of BeanA</span>
 BeanA beanA = ... <span class="comment">// initialized elsewhere</span>
 morpherRegistry.registerMorpher(<span class="keyword">new</span> BeanMorpher(BeanB.class, morpherRegistry));
 BeanB beanB = (BeanB) morpherRegistry.morph(BeanB.class, beanA);
@@ -184,7 +185,7 @@ Another convenient class is <code>MorphUtils</code>, you can register standard M
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay"><code class="java language-java">MorpherRegistry morperRegistry = <span class="keyword">new</span> MorpherRegistry();
+<pre class="CodeRay highlight"><code data-lang="java">MorpherRegistry morperRegistry = <span class="keyword">new</span> MorpherRegistry();
 MorphUtils.registerStandardMorphers(morpherRegistry);
 <span class="predefined-type">Integer</span> i = (<span class="predefined-type">Integer</span>) morpherRegistry.morph(<span class="predefined-type">Integer</span>.class, <span class="string"><span class="delimiter">&quot;</span><span class="content">A</span><span class="delimiter">&quot;</span></span>);
 <span class="comment">// &quot;A&quot; is not a number, so morph() returns Integer(0)</span>
@@ -200,8 +201,8 @@ assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="i
 <h3 id="_gradle"><a class="anchor" href="#_gradle"></a>3.1. Gradle</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay nowrap"><code class="groovy language-groovy">dependencies {
-    compile 'org.kordamp.ezmorph:ezmorph:2.0.0'
+<pre class="CodeRay highlight nowrap"><code data-lang="groovy">dependencies {
+    compile 'org.kordamp.ezmorph:ezmorph:3.0.0'
 }</code></pre>
 </div>
 </div>
@@ -210,10 +211,10 @@ assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="i
 <h3 id="_maven"><a class="anchor" href="#_maven"></a>3.2. Maven</h3>
 <div class="listingblock">
 <div class="content">
-<pre class="CodeRay nowrap"><code class="xml language-xml"><span class="tag">&lt;dependency&gt;</span>
+<pre class="CodeRay highlight nowrap"><code data-lang="xml"><span class="tag">&lt;dependency&gt;</span>
     <span class="tag">&lt;groupId&gt;</span>org.kordamp.ezmorph<span class="tag">&lt;/groupId&gt;</span>
     <span class="tag">&lt;artifactId&gt;</span>ezmorph<span class="tag">&lt;/artifactId&gt;</span>
-    <span class="tag">&lt;version&gt;</span>2.0.0<span class="tag">&lt;/version&gt;</span>
+    <span class="tag">&lt;version&gt;</span>3.0.0<span class="tag">&lt;/version&gt;</span>
 <span class="tag">&lt;/dependency&gt;</span></code></pre>
 </div>
 </div>
@@ -245,15 +246,15 @@ assertEquals(<span class="predefined-type">Integer</span>.valueOf(<span class="i
 <h2 id="_links"><a class="anchor" href="#_links"></a>5. Links</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p><a href="api/index.html" target="_blank">Javadoc</a></p>
+<p><a href="api/index.html" target="_blank" rel="noopener">Javadoc</a></p>
 </div>
 </div>
 </div>
 </div>
 <div id="footer">
 <div id="footer-text">
-Version 2.0.0<br>
-Last updated 2014-08-19 15:42:55 CEST
+Version 3.0.0<br>
+Last updated 2019-12-23 18:27:48 +0100
 </div>
 </div>
 </body>
