@@ -1,0 +1,16 @@
+= EZMorph
+:author: {project-author}
+:revnumber: {project-version}
+:toclevels: 10
+
+include::{includedir}/_links.adoc[]
+
+:leveloffset: 1
+include::{includedir}/introduction.adoc[]
+include::{includedir}/usage.adoc[]
+include::{includedir}/configuration.adoc[]
+include::{includedir}/compatibility.adoc[]
+
+= Links
+
+link:api/index.html[Javadoc, window="_blank"]

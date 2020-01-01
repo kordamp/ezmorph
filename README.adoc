@@ -1,17 +1,21 @@
 = ezmorph
-:version: 2.0.0
+:author: Andres Almiray
 :linkattrs:
-:project-name: ezmorph
+:project-owner:   kordamp
+:project-repo:    maven
+:project-name:    ezmorph
+:project-group:   org.kordamp.ezmorph
+:project-version: 3.0.0
 
-image:http://img.shields.io/travis/aalmiray/{project-name}/master.svg["Build Status", link="https://travis-ci.org/aalmiray/{project-name}"]
-image:http://img.shields.io/coveralls/aalmiray/{project-name}/master.svg["Coverage Status", link="https://coveralls.io/r/aalmiray/{project-name}"]
-image:http://img.shields.io/:semver-{version}-blue.svg["Semantic Versioning", link="http://semver.org"]
-image:http://img.shields.io/badge/license-ASF2-blue.svg["Apache License 2", link="http://www.apache.org/licenses/LICENSE-2.0.txt"]
-image:http://img.shields.io/badge/download-latest-bb00bb.svg[link="https://bintray.com/aalmiray/kordamp/{project-name}/_latestVersion"]
+image:http://img.shields.io/travis/{project-owner}/{project-name}/master.svg["Build Status (travis)", link="https://travis-ci.org/{project-owner}/{project-name}"]
+image:http://img.shields.io/badge/license-ASL2-blue.svg["ASL2 Licensed", link="http://opensource.org/licenses/ASL2"]
+image:https://api.bintray.com/packages/{project-owner}/{project-repo}/{project-name}/images/download.svg[link="https://bintray.com/{project-owner}/{project-repo}/{project-name}/_latestVersion"]
+image:https://img.shields.io/maven-central/v/{project-group}/{project-name}-core.svg[Download, link="https://search.maven.org/#search|ga|1|{project-name}"]
+image:https://img.shields.io/badge/donations-Patreon-orange.svg[link="https://www.patreon.com/user?u=6609318"]
 
 ---
 
 Simple Java library for transforming an Object to another Object.
 
-Refer to the link:http://aalmiray.github.io/{project-name}/[project guide, window="_blank"] for
+Refer to the link:http://{project-owner}.github.io/{project-name}/[project guide, window="_blank"] for
 further information on configuration and usage.
