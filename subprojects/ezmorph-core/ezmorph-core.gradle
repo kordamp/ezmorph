@@ -20,15 +20,15 @@ plugins {
 }
 
 dependencies {
-    compile('org.apache.commons:commons-lang3:3.9') {
+    api('org.apache.commons:commons-lang3:3.10') {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
-    compile('commons-beanutils:commons-beanutils:1.9.3') {
+    api('commons-beanutils:commons-beanutils:1.9.3') {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
-    compile "org.slf4j:slf4j-api:$slf4jVersion"
-    compile "org.slf4j:jcl-over-slf4j:$slf4jVersion"
-    compile 'junit:junit:4.12'
+    api "org.slf4j:slf4j-api:$slf4jVersion"
+    api "org.slf4j:jcl-over-slf4j:$slf4jVersion"
+    api 'junit:junit:4.13'
 
-    testRuntime "org.slf4j:slf4j-simple:$slf4jVersion"
+    testRuntimeOnly "org.slf4j:slf4j-simple:$slf4jVersion"
 }

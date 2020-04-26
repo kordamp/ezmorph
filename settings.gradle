@@ -19,17 +19,25 @@ pluginManagement {
     repositories {
         jcenter()
         gradlePluginPortal()
+		mavenLocal()
+    }
+    plugins {
+        id 'org.kordamp.gradle.coveralls' version kordampPluginVersion
+        id 'org.kordamp.gradle.guide'     version kordampPluginVersion
+        id 'org.ajoberstar.git-publish'   version gitPluginVersion
     }
 }
 
 buildscript {
     repositories {
         gradlePluginPortal()
+        jcenter()
+        mavenLocal()
     }
     dependencies {
-        classpath 'org.kordamp.gradle:settings-gradle-plugin:0.31.1'
+        classpath "org.kordamp.gradle:kordamp-parentbuild:$kordampBuildVersion"
     }
 }
-apply plugin: 'org.kordamp.gradle.settings'
+apply plugin: 'org.kordamp.gradle.kordamp-parentbuild'
 
 rootProject.name = 'ezmorph'

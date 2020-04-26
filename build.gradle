@@ -16,8 +16,7 @@
  * limitations under the License.
  */
 plugins {
-    id 'org.kordamp.gradle.kordamp-parentpom' version '1.10.1'
-    id 'org.kordamp.gradle.coveralls'         version '0.31.1'
+    id 'org.kordamp.gradle.coveralls'
 }
 
 config {
