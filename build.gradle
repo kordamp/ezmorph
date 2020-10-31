@@ -37,6 +37,12 @@ config {
             }
         }
     }
+
+    coverage {
+        jacoco {
+            toolVersion = jacocoVersion
+        }
+    }
 }
 
 allprojects {
