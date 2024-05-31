@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: Apache-2.0
  *
- * Copyright 2006-2022 Andres Almiray.
+ * Copyright 2006-2024 Andres Almiray.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -46,19 +46,16 @@ config {
 }
 
 allprojects {
-    apply plugin: 'idea'
-}
+    repositories {
+        mavenLocal()
+    }
 
-idea {
-    project {
-        jdkName project.sourceCompatibility
-        languageLevel project.sourceCompatibility
+    tasks.withType(GenerateModuleMetadata) {
+        enabled = false
+    }
 
-        ipr {
-            withXml { provider ->
-                def node = provider.asNode()
-                node.component.find { it.'@name' == 'VcsDirectoryMappings' }?.mapping[0].'@vcs' = 'Git'
-            }
-        }
+    tasks.withType(JavaCompile) {
+        options.encoding = 'UTF-8'
     }
 }
+

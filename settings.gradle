@@ -1,7 +1,7 @@
 /*
  * SPDX-License-Identifier: Apache-2.0
  *
- * Copyright 2006-2022 Andres Almiray.
+ * Copyright 2006-2024 Andres Almiray.
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -17,8 +17,8 @@
  */
 pluginManagement {
     repositories {
-        jcenter()
         gradlePluginPortal()
+        mavenCentral()
 		mavenLocal()
     }
     plugins {
@@ -31,7 +31,7 @@ pluginManagement {
 buildscript {
     repositories {
         gradlePluginPortal()
-        jcenter()
+        mavenCentral()
         mavenLocal()
     }
     dependencies {
@@ -41,3 +41,20 @@ buildscript {
 apply plugin: 'org.kordamp.gradle.kordamp-parentbuild'
 
 rootProject.name = 'ezmorph'
+
+projects {
+    directories = ['docs', 'subprojects']
+
+    plugins {
+        all {
+            id 'base'
+            id 'idea'
+        }
+        path(':') {
+            id 'org.kordamp.gradle.java-project'
+        }
+        dirs(['subprojects']) {
+            id 'java-library'
+        }
+    }
+}
