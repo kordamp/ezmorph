@@ -59,3 +59,41 @@ allprojects {
     }
 }
 
+profiles {
+    profile('sbom') {
+        activation {
+            property {
+                key   = 'sbom'
+                value = true
+            }
+        }
+        action {
+            println 'SBOM generation is turned ON'
+
+            gradleProjects {
+                subprojects {
+                    dirs(['subprojects']) {
+                        cyclonedxBom {
+                            includeConfigs = ['runtimeClasspath']
+                            projectType = 'library'
+                            outputName = "${project.name}-${project.version}-cyclonedx".toString()
+                            destination = file('build/reports/cyclonedx')
+                            includeLicenseText = false
+                        }
+
+                        publishing {
+                            publications {
+                                main(MavenPublication) {
+                                    artifact classifier: 'cyclonedx', source: new File(cyclonedxBom.destination.get(), cyclonedxBom.outputName.get() + '.xml')
+                                    artifact classifier: 'cyclonedx', source: new File(cyclonedxBom.destination.get(), cyclonedxBom.outputName.get() + '.json')
+                                }
+                            }
+                        }
+
+                        project.generatePomFileForMainPublication.dependsOn(cyclonedxBom)
+                    }
+                }
+            }
+        }
+    }
+}
