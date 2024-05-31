@@ -28,3 +28,13 @@ dependencies {
 
     testRuntimeOnly "org.slf4j:slf4j-simple:$slf4jVersion"
 }
+
+addMainModuleInfo {
+    version = project.version
+    jvmVersion = '11'
+    overwriteExistingFiles = true
+    jdepsExtraArgs = ['-q']
+    module {
+        moduleInfoFile = file('src/main/java11/module-info.java')
+    }
+}
