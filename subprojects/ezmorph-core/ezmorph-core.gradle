@@ -16,10 +16,10 @@
  * limitations under the License.
  */
 dependencies {
-    api('org.apache.commons:commons-lang3:3.11') {
+    api("org.apache.commons:commons-lang3:$commonsLang3Version") {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
-    api('commons-beanutils:commons-beanutils:1.9.4') {
+    api("commons-beanutils:commons-beanutils:$beanutilsVersion") {
         exclude group: 'commons-logging', module: 'commons-logging'
     }
     api "org.slf4j:slf4j-api:$slf4jVersion"
