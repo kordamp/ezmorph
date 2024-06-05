@@ -26,6 +26,13 @@ project:
   license: Apache-2.0
   inceptionYear: 2006
   stereotype: NONE
+  vendor: Kordamp
+  java:
+    groupId: org.kordamp.ezmorph
+    version: 8
+  tags:
+    - 'pojo'
+    - 'convert'
 
 release:
   github:
