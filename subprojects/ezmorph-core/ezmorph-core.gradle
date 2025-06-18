@@ -24,7 +24,7 @@ dependencies {
     }
     api "org.slf4j:slf4j-api:$slf4jVersion"
     api "org.slf4j:jcl-over-slf4j:$slf4jVersion"
-    api 'junit:junit:4.13.1'
+    api 'junit:junit:4.13.2'
 
     testRuntimeOnly "org.slf4j:slf4j-simple:$slf4jVersion"
 }
