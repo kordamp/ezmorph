@@ -1,7 +1,7 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
-# Copyright 2006-2024 Andres Almiray
+# Copyright 2006-2025 Andres Almiray
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -27,9 +27,10 @@ project:
   inceptionYear: 2006
   stereotype: NONE
   vendor: Kordamp
-  java:
-    groupId: org.kordamp.ezmorph
-    version: 8
+  languages:
+    java:
+      groupId: org.kordamp.ezmorph
+      version: 8
   tags:
     - 'pojo'
     - 'convert'
@@ -82,5 +83,6 @@ deploy:
           - build/repos/local/release
 
 announce:
-  twitter:
+  mastodon:
     active: RELEASE
+    host: https://mastodon.social
