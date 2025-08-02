@@ -55,13 +55,13 @@ public class MapToDateMorpherTest extends AbstractObjectMorpherTestCase {
 
     public void testMorph() {
         Map map = new HashMap();
-        map.put("year", new Integer(2007));
-        map.put("month", new Integer(5));
-        map.put("day", new Integer(17));
-        map.put("hour", new Integer(12));
-        map.put("minutes", new Integer(13));
-        map.put("seconds", new Integer(14));
-        map.put("milliseconds", new Integer(150));
+        map.put("year", Integer.valueOf(2007));
+        map.put("month", Integer.valueOf(5));
+        map.put("day", Integer.valueOf(17));
+        map.put("hour", Integer.valueOf(12));
+        map.put("minutes", Integer.valueOf(13));
+        map.put("seconds", Integer.valueOf(14));
+        map.put("milliseconds", Integer.valueOf(150));
 
         Date date = (Date) morpher.morph(map);
         assertNotNull(date);

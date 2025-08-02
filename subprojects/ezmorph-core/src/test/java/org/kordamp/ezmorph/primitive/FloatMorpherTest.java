@@ -78,13 +78,13 @@ public class FloatMorpherTest extends AbstractMorpherTestCase {
     }
 
     public void testFloatMorphDecimalValue_Number() {
-        Double expected = new Double(3.1416d);
+        Double expected = Double.valueOf(3.1416d);
         float actual = ((FloatMorpher) getMorpher()).morph(expected);
         assertEquals(3.1416f, actual, 0f);
     }
 
     public void testFloatMorphDecimalValue_Number_outOfRange() {
-        float actual = ((FloatMorpher) getMorpher()).morph(new Double(Double.MAX_VALUE));
+        float actual = ((FloatMorpher) getMorpher()).morph(Double.valueOf(Double.MAX_VALUE));
         assertEquals(Float.POSITIVE_INFINITY, actual, 0f);
     }
 
@@ -95,25 +95,25 @@ public class FloatMorpherTest extends AbstractMorpherTestCase {
     }
 
     public void testFloatMorphMaxValue_Number() {
-        Float expected = new Float(Float.MAX_VALUE);
+        Float expected = Float.valueOf(Float.MAX_VALUE);
         float actual = ((FloatMorpher) getMorpher()).morph(expected);
         assertEquals(expected.floatValue(), actual, 0f);
     }
 
     public void testFloatMorphMaxValue_String() {
-        String expected = String.valueOf(new Float(Float.MAX_VALUE));
+        String expected = String.valueOf(Float.valueOf(Float.MAX_VALUE));
         float actual = ((FloatMorpher) getMorpher()).morph(expected);
         assertEquals(expected, String.valueOf(actual));
     }
 
     public void testFloatMorphMinValue_Number() {
-        Float expected = new Float(Float.MIN_VALUE);
+        Float expected = Float.valueOf(Float.MIN_VALUE);
         float actual = ((FloatMorpher) getMorpher()).morph(expected);
         assertEquals(expected.floatValue(), actual, 0f);
     }
 
     public void testFloatMorphMinValue_String() {
-        String expected = String.valueOf(new Float(Float.MIN_VALUE));
+        String expected = String.valueOf(Float.valueOf(Float.MIN_VALUE));
         float actual = ((FloatMorpher) getMorpher()).morph(expected);
         assertEquals(expected, String.valueOf(actual));
     }

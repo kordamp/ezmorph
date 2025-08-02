@@ -86,32 +86,32 @@ public class BooleanMorpherTest extends AbstractMorpherTestCase {
     }
 
     public void testBooleanMorphNumberValues_false() {
-        assertFalse(((BooleanMorpher) getMorpher()).morph(new Byte((byte) 0)));
-        assertFalse(((BooleanMorpher) getMorpher()).morph(new Short((short) 0)));
-        assertFalse(((BooleanMorpher) getMorpher()).morph(new Integer(0)));
-        assertFalse(((BooleanMorpher) getMorpher()).morph(new Long(0)));
-        assertFalse(((BooleanMorpher) getMorpher()).morph(new Float(0)));
-        assertFalse(((BooleanMorpher) getMorpher()).morph(new Double(0)));
+        assertFalse(((BooleanMorpher) getMorpher()).morph(Byte.valueOf((byte) 0)));
+        assertFalse(((BooleanMorpher) getMorpher()).morph(Short.valueOf((short) 0)));
+        assertFalse(((BooleanMorpher) getMorpher()).morph(Integer.valueOf(0)));
+        assertFalse(((BooleanMorpher) getMorpher()).morph(Long.valueOf(0)));
+        assertFalse(((BooleanMorpher) getMorpher()).morph(Float.valueOf(0)));
+        assertFalse(((BooleanMorpher) getMorpher()).morph(Double.valueOf(0)));
         assertFalse(((BooleanMorpher) getMorpher()).morph(BigInteger.ZERO));
         assertFalse(((BooleanMorpher) getMorpher()).morph(MorphUtils.BIGDECIMAL_ZERO));
     }
 
     public void testBooleanMorphNumberValues_true() {
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Byte((byte) 1)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Short((short) 1)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Integer(1)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Long(1)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Float(1)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Double(1)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Byte.valueOf((byte) 1)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Short.valueOf((short) 1)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Integer.valueOf(1)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Long.valueOf(1)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Float.valueOf(1)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Double.valueOf(1)));
         assertTrue(((BooleanMorpher) getMorpher()).morph(BigInteger.ONE));
         assertTrue(((BooleanMorpher) getMorpher()).morph(MorphUtils.BIGDECIMAL_ONE));
 
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Double(Float.NEGATIVE_INFINITY)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Double(Float.POSITIVE_INFINITY)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Double(Float.NaN)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Double(Double.NEGATIVE_INFINITY)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Double(Double.POSITIVE_INFINITY)));
-        assertTrue(((BooleanMorpher) getMorpher()).morph(new Double(Double.NaN)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Double.valueOf(Float.NEGATIVE_INFINITY)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Double.valueOf(Float.POSITIVE_INFINITY)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Double.valueOf(Float.NaN)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Double.valueOf(Double.NEGATIVE_INFINITY)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Double.valueOf(Double.POSITIVE_INFINITY)));
+        assertTrue(((BooleanMorpher) getMorpher()).morph(Double.valueOf(Double.NaN)));
     }
 
     public void testBooleanMorphStringValues_false() {

@@ -51,19 +51,19 @@ public class ByteArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_byte_Byte() {
         byte[] expecteds = new byte[]{1, 2};
-        Byte[] actuals = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Byte[] actuals = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Byte_byte() {
-        Byte[] expecteds = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Byte[] expecteds = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         byte[] actuals = new byte[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Byte_Byte() {
-        Byte[] expecteds = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
-        Byte[] actuals = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Byte[] expecteds = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
+        Byte[] actuals = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -91,7 +91,7 @@ public class ByteArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_Byte_byte_actuals_is_null() {
         boolean errorThrown = false;
-        Byte[] expecteds = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Byte[] expecteds = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         try {
             ArrayAssertions.assertEquals(expecteds, (byte[]) null);
         } catch (AssertionFailedError expected) {
@@ -114,7 +114,7 @@ public class ByteArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_byte_Byte_different_length() {
         byte[] expecteds = new byte[]{1};
-        Byte[] actuals = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Byte[] actuals = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         boolean errorThrown = false;
         try {
             ArrayAssertions.assertEquals(expecteds, actuals);
@@ -125,7 +125,7 @@ public class ByteArrayAssertionsTest extends TestCase {
     }
 
     public void testAssertEquals_Byte_byte_different_length() {
-        Byte[] expecteds = new Byte[]{new Byte((byte) 1)};
+        Byte[] expecteds = new Byte[]{Byte.valueOf((byte) 1)};
         byte[] actuals = new byte[]{1, 2};
         boolean errorThrown = false;
         try {
@@ -149,7 +149,7 @@ public class ByteArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_byte_Byte_expecteds_is_null() {
         boolean errorThrown = false;
-        Byte[] actuals = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Byte[] actuals = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         try {
             ArrayAssertions.assertEquals((byte[]) null, actuals);
         } catch (AssertionFailedError expected) {
@@ -177,23 +177,23 @@ public class ByteArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_multi_byte_Byte() {
         byte[][] expecteds = new byte[][]{{1, 2}, {1, 2}};
-        Byte[][] actuals = new Byte[][]{{new Byte((byte) 1), new Byte((byte) 2)},
-            {new Byte((byte) 1), new Byte((byte) 2)}};
+        Byte[][] actuals = new Byte[][]{{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)},
+            {Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Byte_byte() {
-        Byte[][] expecteds = new Byte[][]{{new Byte((byte) 1), new Byte((byte) 2)},
-            {new Byte((byte) 1), new Byte((byte) 2)}};
+        Byte[][] expecteds = new Byte[][]{{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)},
+            {Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)}};
         byte[][] actuals = new byte[][]{{1, 2}, {1, 2}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Byte_Byte() {
-        Byte[][] expecteds = new Byte[][]{{new Byte((byte) 1), new Byte((byte) 2)},
-            {new Byte((byte) 1), new Byte((byte) 2)}};
-        Byte[][] actuals = new Byte[][]{{new Byte((byte) 1), new Byte((byte) 2)},
-            {new Byte((byte) 1), new Byte((byte) 2)}};
+        Byte[][] expecteds = new Byte[][]{{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)},
+            {Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)}};
+        Byte[][] actuals = new Byte[][]{{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)},
+            {Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -205,12 +205,12 @@ public class ByteArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_byte_Byte() {
         Object expecteds = new byte[]{1, 2};
-        Object actuals = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Object actuals = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Byte_byte() {
-        Object expecteds = new Byte[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Object expecteds = new Byte[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         Object actuals = new byte[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
@@ -229,19 +229,19 @@ public class ByteArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_byte_Object_array() {
         Object expecteds = new byte[]{1, 2};
-        Object actuals = new Object[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Object actuals = new Object[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_byte() {
-        Object expecteds = new Object[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Object expecteds = new Object[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         Object actuals = new byte[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_Object_array() {
-        Object expecteds = new Object[]{new Byte((byte) 1), new Byte((byte) 2)};
-        Object actuals = new Object[]{new Byte((byte) 1), new Byte((byte) 2)};
+        Object expecteds = new Object[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
+        Object actuals = new Object[]{Byte.valueOf((byte) 1), Byte.valueOf((byte) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 }

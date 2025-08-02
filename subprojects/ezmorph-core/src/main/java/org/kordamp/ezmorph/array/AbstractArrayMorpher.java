@@ -63,7 +63,7 @@ public abstract class AbstractArrayMorpher implements ObjectMorpher {
      */
     protected int[] createDimensions(int length, int initial) {
         Object dims = Array.newInstance(int.class, length);
-        Array.set(dims, 0, new Integer(initial));
+        Array.set(dims, 0, Integer.valueOf(initial));
         return (int[]) dims;
     }
 

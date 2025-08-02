@@ -349,7 +349,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Boolean(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Boolean.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }
@@ -404,7 +404,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Byte(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Byte.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }
@@ -459,7 +459,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Character(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Character.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }
@@ -514,7 +514,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Double(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Double.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }
@@ -569,7 +569,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Float(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Float.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }
@@ -624,7 +624,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Integer(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Integer.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }
@@ -736,7 +736,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Long(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Long.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }
@@ -795,7 +795,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Boolean(actuals[i]));
+                Boolean.valueOf(actuals[i]));
         }
     }
 
@@ -821,7 +821,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Byte(actuals[i]));
+                Byte.valueOf(actuals[i]));
         }
     }
 
@@ -847,7 +847,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Character(actuals[i]));
+                Character.valueOf(actuals[i]));
         }
     }
 
@@ -873,7 +873,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Double(actuals[i]));
+                Double.valueOf(actuals[i]));
         }
     }
 
@@ -899,7 +899,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Float(actuals[i]));
+                Float.valueOf(actuals[i]));
         }
     }
 
@@ -925,7 +925,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Integer(actuals[i]));
+                Integer.valueOf(actuals[i]));
         }
     }
 
@@ -951,7 +951,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Long(actuals[i]));
+                Long.valueOf(actuals[i]));
         }
     }
 
@@ -1127,7 +1127,7 @@ public class ArrayAssertions extends Assert {
 
         for (int i = 0; i < expecteds.length; i++) {
             assertEquals(header + "arrays first differed at element [" + i + "];", expecteds[i],
-                new Short(actuals[i]));
+                Short.valueOf(actuals[i]));
         }
     }
 
@@ -1152,7 +1152,7 @@ public class ArrayAssertions extends Assert {
         }
 
         for (int i = 0; i < expecteds.length; i++) {
-            assertEquals(header + "arrays first differed at element [" + i + "];", new Short(
+            assertEquals(header + "arrays first differed at element [" + i + "];", Short.valueOf(
                 expecteds[i]), actuals[i]);
         }
     }

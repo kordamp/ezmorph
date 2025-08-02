@@ -60,17 +60,17 @@ public class BigIntegerMorpherTest extends AbstractObjectMorpherTestCase {
     }
 
     public void testBigIntegerMorph_Number() {
-        Object actual = ((BigIntegerMorpher) getMorpher()).morph(new Byte((byte) 1));
+        Object actual = ((BigIntegerMorpher) getMorpher()).morph(Byte.valueOf((byte) 1));
         assertEquals(BigInteger.ONE, actual);
-        actual = ((BigIntegerMorpher) getMorpher()).morph(new Short((short) 1));
+        actual = ((BigIntegerMorpher) getMorpher()).morph(Short.valueOf((short) 1));
         assertEquals(BigInteger.ONE, actual);
-        actual = ((BigIntegerMorpher) getMorpher()).morph(new Integer(1));
+        actual = ((BigIntegerMorpher) getMorpher()).morph(Integer.valueOf(1));
         assertEquals(BigInteger.ONE, actual);
-        actual = ((BigIntegerMorpher) getMorpher()).morph(new Long(1L));
+        actual = ((BigIntegerMorpher) getMorpher()).morph(Long.valueOf(1L));
         assertEquals(BigInteger.ONE, actual);
-        actual = ((BigIntegerMorpher) getMorpher()).morph(new Double(1d));
+        actual = ((BigIntegerMorpher) getMorpher()).morph(Double.valueOf(1d));
         assertEquals(BigInteger.ONE, actual);
-        actual = ((BigIntegerMorpher) getMorpher()).morph(new Float(1f));
+        actual = ((BigIntegerMorpher) getMorpher()).morph(Float.valueOf(1f));
         assertEquals(BigInteger.ONE, actual);
         actual = ((BigIntegerMorpher) getMorpher()).morph(MorphUtils.BIGDECIMAL_ONE);
         assertEquals(BigInteger.ONE, actual);
@@ -78,7 +78,7 @@ public class BigIntegerMorpherTest extends AbstractObjectMorpherTestCase {
 
     public void testBigIntegerMorph_Number__Double_INFINITY() {
         try {
-            ((BigIntegerMorpher) getMorpher()).morph(new Double(Double.POSITIVE_INFINITY));
+            ((BigIntegerMorpher) getMorpher()).morph(Double.valueOf(Double.POSITIVE_INFINITY));
             fail("Should have thrown an Exception");
         } catch (MorphException expected) {
             // ok
@@ -87,7 +87,7 @@ public class BigIntegerMorpherTest extends AbstractObjectMorpherTestCase {
 
     public void testBigIntegerMorph_Number__Double_NAN() {
         try {
-            ((BigIntegerMorpher) getMorpher()).morph(new Double(Double.NaN));
+            ((BigIntegerMorpher) getMorpher()).morph(Double.valueOf(Double.NaN));
             fail("Should have thrown an Exception");
         } catch (MorphException expected) {
             // ok
@@ -96,7 +96,7 @@ public class BigIntegerMorpherTest extends AbstractObjectMorpherTestCase {
 
     public void testBigIntegerMorph_Number__Float_INFINITY() {
         try {
-            ((BigIntegerMorpher) getMorpher()).morph(new Float(Float.POSITIVE_INFINITY));
+            ((BigIntegerMorpher) getMorpher()).morph(Float.valueOf(Float.POSITIVE_INFINITY));
             fail("Should have thrown an Exception");
         } catch (MorphException expected) {
             // ok
@@ -105,7 +105,7 @@ public class BigIntegerMorpherTest extends AbstractObjectMorpherTestCase {
 
     public void testBigIntegerMorph_Number__Float_NAN() {
         try {
-            ((BigIntegerMorpher) getMorpher()).morph(new Float(Float.NaN));
+            ((BigIntegerMorpher) getMorpher()).morph(Float.valueOf(Float.NaN));
             fail("Should have thrown an Exception");
         } catch (MorphException expected) {
             // ok

@@ -85,7 +85,7 @@ public class CharArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_char_Character() {
         char[] expecteds = new char[]{'A', 'B'};
-        Character[] actuals = new Character[]{new Character('A'), new Character('B')};
+        Character[] actuals = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -102,7 +102,7 @@ public class CharArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_char_Character_different_length() {
         char[] expecteds = new char[]{'A'};
-        Character[] actuals = new Character[]{new Character('A'), new Character('B')};
+        Character[] actuals = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         boolean errorThrown = false;
         try {
             ArrayAssertions.assertEquals(expecteds, actuals);
@@ -114,7 +114,7 @@ public class CharArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_char_Character_expecteds_is_null() {
         boolean errorThrown = false;
-        Character[] actuals = new Character[]{new Character('A'), new Character('B')};
+        Character[] actuals = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         try {
             ArrayAssertions.assertEquals((char[]) null, actuals);
         } catch (AssertionFailedError expected) {
@@ -124,14 +124,14 @@ public class CharArrayAssertionsTest extends TestCase {
     }
 
     public void testAssertEquals_Character_char() {
-        Character[] expecteds = new Character[]{new Character('A'), new Character('B')};
+        Character[] expecteds = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         char[] actuals = new char[]{'A', 'B'};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Character_char_actuals_is_null() {
         boolean errorThrown = false;
-        Character[] expecteds = new Character[]{new Character('A'), new Character('B')};
+        Character[] expecteds = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         try {
             ArrayAssertions.assertEquals(expecteds, (char[]) null);
         } catch (AssertionFailedError expected) {
@@ -141,7 +141,7 @@ public class CharArrayAssertionsTest extends TestCase {
     }
 
     public void testAssertEquals_Character_char_different_length() {
-        Character[] expecteds = new Character[]{new Character('A')};
+        Character[] expecteds = new Character[]{Character.valueOf('A')};
         char[] actuals = new char[]{'A', 'B'};
         boolean errorThrown = false;
         try {
@@ -164,8 +164,8 @@ public class CharArrayAssertionsTest extends TestCase {
     }
 
     public void testAssertEquals_Character_Character() {
-        Character[] expecteds = new Character[]{new Character('A'), new Character('B')};
-        Character[] actuals = new Character[]{new Character('A'), new Character('B')};
+        Character[] expecteds = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
+        Character[] actuals = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -177,23 +177,23 @@ public class CharArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_multi_char_Character() {
         char[][] expecteds = new char[][]{{'A', 'B'}, {'A', 'B'}};
-        Character[][] actuals = new Character[][]{{new Character('A'), new Character('B')},
-            {new Character('A'), new Character('B')}};
+        Character[][] actuals = new Character[][]{{Character.valueOf('A'), Character.valueOf('B')},
+            {Character.valueOf('A'), Character.valueOf('B')}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Character_char() {
-        Character[][] expecteds = new Character[][]{{new Character('A'), new Character('B')},
-            {new Character('A'), new Character('B')}};
+        Character[][] expecteds = new Character[][]{{Character.valueOf('A'), Character.valueOf('B')},
+            {Character.valueOf('A'), Character.valueOf('B')}};
         char[][] actuals = new char[][]{{'A', 'B'}, {'A', 'B'}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Character_Character() {
-        Character[][] expecteds = new Character[][]{{new Character('A'), new Character('B')},
-            {new Character('A'), new Character('B')}};
-        Character[][] actuals = new Character[][]{{new Character('A'), new Character('B')},
-            {new Character('A'), new Character('B')}};
+        Character[][] expecteds = new Character[][]{{Character.valueOf('A'), Character.valueOf('B')},
+            {Character.valueOf('A'), Character.valueOf('B')}};
+        Character[][] actuals = new Character[][]{{Character.valueOf('A'), Character.valueOf('B')},
+            {Character.valueOf('A'), Character.valueOf('B')}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -205,7 +205,7 @@ public class CharArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_char_Character() {
         Object expecteds = new char[]{'A', 'B'};
-        Object actuals = new Character[]{new Character('A'), new Character('B')};
+        Object actuals = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -223,25 +223,25 @@ public class CharArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_char_Object_array() {
         Object expecteds = new char[]{'A', 'B'};
-        Object actuals = new Object[]{new Character('A'), new Character('B')};
+        Object actuals = new Object[]{Character.valueOf('A'), Character.valueOf('B')};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Character_char() {
-        Object expecteds = new Character[]{new Character('A'), new Character('B')};
+        Object expecteds = new Character[]{Character.valueOf('A'), Character.valueOf('B')};
         Object actuals = new char[]{'A', 'B'};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_char() {
-        Object expecteds = new Object[]{new Character('A'), new Character('B')};
+        Object expecteds = new Object[]{Character.valueOf('A'), Character.valueOf('B')};
         Object actuals = new char[]{'A', 'B'};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_Object_array() {
-        Object expecteds = new Object[]{new Character('A'), new Character('B')};
-        Object actuals = new Object[]{new Character('A'), new Character('B')};
+        Object expecteds = new Object[]{Character.valueOf('A'), Character.valueOf('B')};
+        Object actuals = new Object[]{Character.valueOf('A'), Character.valueOf('B')};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 }

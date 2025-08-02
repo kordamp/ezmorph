@@ -91,7 +91,7 @@ public final class CharacterObjectMorpher extends AbstractObjectMorpher {
         } else {
             String s = String.valueOf(value);
             if (s.length() > 0) {
-                return new Character(s.charAt(0));
+                return Character.valueOf(s.charAt(0));
             } else {
                 if (isUseDefault()) {
                     return defaultValue;

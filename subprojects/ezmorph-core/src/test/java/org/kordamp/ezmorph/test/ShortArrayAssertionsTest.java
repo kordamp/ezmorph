@@ -51,34 +51,34 @@ public class ShortArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_multi_short_Short() {
         short[][] expecteds = new short[][]{{1, 2}, {1, 2}};
-        Short[][] actuals = new Short[][]{{new Short((short) 1), new Short((short) 2)},
-            {new Short((short) 1), new Short((short) 2)}};
+        Short[][] actuals = new Short[][]{{Short.valueOf((short) 1), Short.valueOf((short) 2)},
+            {Short.valueOf((short) 1), Short.valueOf((short) 2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Short_short() {
-        Short[][] expecteds = new Short[][]{{new Short((short) 1), new Short((short) 2)},
-            {new Short((short) 1), new Short((short) 2)}};
+        Short[][] expecteds = new Short[][]{{Short.valueOf((short) 1), Short.valueOf((short) 2)},
+            {Short.valueOf((short) 1), Short.valueOf((short) 2)}};
         short[][] actuals = new short[][]{{1, 2}, {1, 2}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Short_Short() {
-        Short[][] expecteds = new Short[][]{{new Short((short) 1), new Short((short) 2)},
-            {new Short((short) 1), new Short((short) 2)}};
-        Short[][] actuals = new Short[][]{{new Short((short) 1), new Short((short) 2)},
-            {new Short((short) 1), new Short((short) 2)}};
+        Short[][] expecteds = new Short[][]{{Short.valueOf((short) 1), Short.valueOf((short) 2)},
+            {Short.valueOf((short) 1), Short.valueOf((short) 2)}};
+        Short[][] actuals = new Short[][]{{Short.valueOf((short) 1), Short.valueOf((short) 2)},
+            {Short.valueOf((short) 1), Short.valueOf((short) 2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_Object_array() {
-        Object expecteds = new Object[]{new Short((short) 1), new Short((short) 2)};
-        Object actuals = new Object[]{new Short((short) 1), new Short((short) 2)};
+        Object expecteds = new Object[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
+        Object actuals = new Object[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_short() {
-        Object expecteds = new Object[]{new Short((short) 1), new Short((short) 2)};
+        Object expecteds = new Object[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         Object actuals = new short[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
@@ -97,7 +97,7 @@ public class ShortArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_short_Object_array() {
         Object expecteds = new short[]{1, 2};
-        Object actuals = new Object[]{new Short((short) 1), new Short((short) 2)};
+        Object actuals = new Object[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -109,12 +109,12 @@ public class ShortArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_short_Short() {
         Object expecteds = new short[]{1, 2};
-        Object actuals = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Object actuals = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Short_short() {
-        Object expecteds = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Object expecteds = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         Object actuals = new short[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
@@ -127,19 +127,19 @@ public class ShortArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_short_Short() {
         short[] expecteds = new short[]{1, 2};
-        Short[] actuals = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Short[] actuals = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Short_short() {
-        Short[] expecteds = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Short[] expecteds = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         short[] actuals = new short[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Short_Short() {
-        Short[] expecteds = new Short[]{new Short((short) 1), new Short((short) 2)};
-        Short[] actuals = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Short[] expecteds = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
+        Short[] actuals = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -167,7 +167,7 @@ public class ShortArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_Short_short_actuals_is_null() {
         boolean errorThrown = false;
-        Short[] expecteds = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Short[] expecteds = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         try {
             ArrayAssertions.assertEquals(expecteds, (short[]) null);
         } catch (AssertionFailedError expected) {
@@ -190,7 +190,7 @@ public class ShortArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_short_Short_different_length() {
         short[] expecteds = new short[]{1};
-        Short[] actuals = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Short[] actuals = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         boolean errorThrown = false;
         try {
             ArrayAssertions.assertEquals(expecteds, actuals);
@@ -201,7 +201,7 @@ public class ShortArrayAssertionsTest extends TestCase {
     }
 
     public void testAssertEquals_Short_short_different_length() {
-        Short[] expecteds = new Short[]{new Short((short) 1)};
+        Short[] expecteds = new Short[]{Short.valueOf((short) 1)};
         short[] actuals = new short[]{1, 2};
         boolean errorThrown = false;
         try {
@@ -225,7 +225,7 @@ public class ShortArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_short_Short_expecteds_is_null() {
         boolean errorThrown = false;
-        Short[] actuals = new Short[]{new Short((short) 1), new Short((short) 2)};
+        Short[] actuals = new Short[]{Short.valueOf((short) 1), Short.valueOf((short) 2)};
         try {
             ArrayAssertions.assertEquals((short[]) null, actuals);
         } catch (AssertionFailedError expected) {

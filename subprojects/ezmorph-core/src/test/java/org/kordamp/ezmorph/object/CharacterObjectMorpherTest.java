@@ -51,11 +51,11 @@ public class CharacterObjectMorpherTest extends AbstractObjectMorpherTestCase {
     public void testCharMorph() {
         String expected = String.valueOf("A");
         Character actual = (Character) new CharacterObjectMorpher().morph(expected);
-        assertEquals(new Character('A'), actual);
+        assertEquals(Character.valueOf('A'), actual);
     }
 
     public void testCharMorph_noConversion() {
-        Character expected = new Character('A');
+        Character expected = Character.valueOf('A');
         Character actual = (Character) new CharacterObjectMorpher().morph(expected);
         assertEquals(expected, actual);
         assertSame(expected, actual);
@@ -81,13 +81,13 @@ public class CharacterObjectMorpherTest extends AbstractObjectMorpherTestCase {
 
     public void testCharMorph_useDefault() {
         String expected = String.valueOf("");
-        Character actual = (Character) new CharacterObjectMorpher(new Character('A')).morph(expected);
-        assertEquals(new Character('A'), actual);
+        Character actual = (Character) new CharacterObjectMorpher(Character.valueOf('A')).morph(expected);
+        assertEquals(Character.valueOf('A'), actual);
     }
 
     public void testCharMorph_useDefault_null() {
-        Character actual = (Character) new CharacterObjectMorpher(new Character('A')).morph(null);
-        assertEquals(new Character('A'), actual);
+        Character actual = (Character) new CharacterObjectMorpher(Character.valueOf('A')).morph(null);
+        assertEquals(Character.valueOf('A'), actual);
     }
 
     protected Morpher getAnotherMorpher() {
@@ -108,8 +108,8 @@ public class CharacterObjectMorpherTest extends AbstractObjectMorpherTestCase {
 
     protected void setUp() throws Exception {
         morpher = new CharacterObjectMorpher();
-        morpherWithDefaultValue = new CharacterObjectMorpher(new Character('A'));
+        morpherWithDefaultValue = new CharacterObjectMorpher(Character.valueOf('A'));
         anotherMorpher = new CharacterObjectMorpher();
-        anotherMorpherWithDefaultValue = new CharacterObjectMorpher(new Character('B'));
+        anotherMorpherWithDefaultValue = new CharacterObjectMorpher(Character.valueOf('B'));
     }
 }

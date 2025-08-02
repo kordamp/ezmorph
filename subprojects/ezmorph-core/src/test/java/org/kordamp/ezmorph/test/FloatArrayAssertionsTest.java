@@ -51,19 +51,19 @@ public class FloatArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_float_Float() {
         float[] expecteds = new float[]{1, 2};
-        Float[] actuals = new Float[]{new Float(1), new Float(2)};
+        Float[] actuals = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Float_float() {
-        Float[] expecteds = new Float[]{new Float(1), new Float(2)};
+        Float[] expecteds = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         float[] actuals = new float[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Float_Float() {
-        Float[] expecteds = new Float[]{new Float(1), new Float(2)};
-        Float[] actuals = new Float[]{new Float(1), new Float(2)};
+        Float[] expecteds = new Float[]{Float.valueOf(1), Float.valueOf(2)};
+        Float[] actuals = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -91,7 +91,7 @@ public class FloatArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_Float_float_actuals_is_null() {
         boolean errorThrown = false;
-        Float[] expecteds = new Float[]{new Float(1), new Float(2)};
+        Float[] expecteds = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         try {
             ArrayAssertions.assertEquals(expecteds, (float[]) null);
         } catch (AssertionFailedError expected) {
@@ -114,7 +114,7 @@ public class FloatArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_float_Float_different_length() {
         float[] expecteds = new float[]{1};
-        Float[] actuals = new Float[]{new Float(1), new Float(2)};
+        Float[] actuals = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         boolean errorThrown = false;
         try {
             ArrayAssertions.assertEquals(expecteds, actuals);
@@ -125,7 +125,7 @@ public class FloatArrayAssertionsTest extends TestCase {
     }
 
     public void testAssertEquals_Float_float_different_length() {
-        Float[] expecteds = new Float[]{new Float(1)};
+        Float[] expecteds = new Float[]{Float.valueOf(1)};
         float[] actuals = new float[]{1, 2};
         boolean errorThrown = false;
         try {
@@ -149,7 +149,7 @@ public class FloatArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_float_Float_expecteds_is_null() {
         boolean errorThrown = false;
-        Float[] actuals = new Float[]{new Float(1), new Float(2)};
+        Float[] actuals = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         try {
             ArrayAssertions.assertEquals((float[]) null, actuals);
         } catch (AssertionFailedError expected) {
@@ -177,23 +177,23 @@ public class FloatArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_multi_float_Float() {
         float[][] expecteds = new float[][]{{1, 2}, {1, 2}};
-        Float[][] actuals = new Float[][]{{new Float(1), new Float(2)},
-            {new Float(1), new Float(2)}};
+        Float[][] actuals = new Float[][]{{Float.valueOf(1), Float.valueOf(2)},
+            {Float.valueOf(1), Float.valueOf(2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Float_float() {
-        Float[][] expecteds = new Float[][]{{new Float(1), new Float(2)},
-            {new Float(1), new Float(2)}};
+        Float[][] expecteds = new Float[][]{{Float.valueOf(1), Float.valueOf(2)},
+            {Float.valueOf(1), Float.valueOf(2)}};
         float[][] actuals = new float[][]{{1, 2}, {1, 2}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Float_Float() {
-        Float[][] expecteds = new Float[][]{{new Float(1), new Float(2)},
-            {new Float(1), new Float(2)}};
-        Float[][] actuals = new Float[][]{{new Float(1), new Float(2)},
-            {new Float(1), new Float(2)}};
+        Float[][] expecteds = new Float[][]{{Float.valueOf(1), Float.valueOf(2)},
+            {Float.valueOf(1), Float.valueOf(2)}};
+        Float[][] actuals = new Float[][]{{Float.valueOf(1), Float.valueOf(2)},
+            {Float.valueOf(1), Float.valueOf(2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -217,31 +217,31 @@ public class FloatArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_float_Float() {
         Object expecteds = new float[]{1, 2};
-        Object actuals = new Float[]{new Float(1), new Float(2)};
+        Object actuals = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Float_float() {
-        Object expecteds = new Float[]{new Float(1), new Float(2)};
+        Object expecteds = new Float[]{Float.valueOf(1), Float.valueOf(2)};
         Object actuals = new float[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_float_Object_array() {
         Object expecteds = new float[]{1, 2};
-        Object actuals = new Object[]{new Float(1), new Float(2)};
+        Object actuals = new Object[]{Float.valueOf(1), Float.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_float() {
-        Object expecteds = new Object[]{new Float(1), new Float(2)};
+        Object expecteds = new Object[]{Float.valueOf(1), Float.valueOf(2)};
         Object actuals = new float[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_Object_array() {
-        Object expecteds = new Object[]{new Float(1), new Float(2)};
-        Object actuals = new Object[]{new Float(1), new Float(2)};
+        Object expecteds = new Object[]{Float.valueOf(1), Float.valueOf(2)};
+        Object actuals = new Object[]{Float.valueOf(1), Float.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 }

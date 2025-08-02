@@ -78,13 +78,13 @@ public class ByteMorpherTest extends AbstractMorpherTestCase {
     }
 
     public void testByteMorphDecimalValue_Number() {
-        Double expected = new Double(3.1416d);
+        Double expected = Double.valueOf(3.1416d);
         byte actual = ((ByteMorpher) getMorpher()).morph(expected);
         assertEquals(3, actual);
     }
 
     public void testByteMorphDecimalValue_Number_outOfRange() {
-        byte actual = ((ByteMorpher) getMorpher()).morph(new Double(Double.MAX_VALUE));
+        byte actual = ((ByteMorpher) getMorpher()).morph(Double.valueOf(Double.MAX_VALUE));
         assertEquals(-1, actual);
     }
 
@@ -95,25 +95,25 @@ public class ByteMorpherTest extends AbstractMorpherTestCase {
     }
 
     public void testByteMorphMaxValue_Number() {
-        Byte expected = new Byte(Byte.MAX_VALUE);
+        Byte expected = Byte.valueOf(Byte.MAX_VALUE);
         byte actual = ((ByteMorpher) getMorpher()).morph(expected);
         assertEquals(expected.byteValue(), actual);
     }
 
     public void testByteMorphMaxValue_String() {
-        String expected = String.valueOf(new Byte(Byte.MAX_VALUE));
+        String expected = String.valueOf(Byte.valueOf(Byte.MAX_VALUE));
         byte actual = ((ByteMorpher) getMorpher()).morph(expected);
         assertEquals(expected, String.valueOf(actual));
     }
 
     public void testByteMorphMinValue_Number() {
-        Byte expected = new Byte(Byte.MIN_VALUE);
+        Byte expected = Byte.valueOf(Byte.MIN_VALUE);
         byte actual = ((ByteMorpher) getMorpher()).morph(expected);
         assertEquals(expected.byteValue(), actual);
     }
 
     public void testByteMorphMinValue_String() {
-        String expected = String.valueOf(new Byte(Byte.MIN_VALUE));
+        String expected = String.valueOf(Byte.valueOf(Byte.MIN_VALUE));
         byte actual = ((ByteMorpher) getMorpher()).morph(expected);
         assertEquals(expected, String.valueOf(actual));
     }

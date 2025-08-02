@@ -51,19 +51,19 @@ public class DoubleArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_double_Double() {
         double[] expecteds = new double[]{1, 2};
-        Double[] actuals = new Double[]{new Double(1), new Double(2)};
+        Double[] actuals = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Double_double() {
-        Double[] expecteds = new Double[]{new Double(1), new Double(2)};
+        Double[] expecteds = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         double[] actuals = new double[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_Double_Double() {
-        Double[] expecteds = new Double[]{new Double(1), new Double(2)};
-        Double[] actuals = new Double[]{new Double(1), new Double(2)};
+        Double[] expecteds = new Double[]{Double.valueOf(1), Double.valueOf(2)};
+        Double[] actuals = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -91,7 +91,7 @@ public class DoubleArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_Double_double_actuals_is_null() {
         boolean errorThrown = false;
-        Double[] expecteds = new Double[]{new Double(1), new Double(2)};
+        Double[] expecteds = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         try {
             ArrayAssertions.assertEquals(expecteds, (double[]) null);
         } catch (AssertionFailedError expected) {
@@ -114,7 +114,7 @@ public class DoubleArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_double_Double_different_length() {
         double[] expecteds = new double[]{1};
-        Double[] actuals = new Double[]{new Double(1), new Double(2)};
+        Double[] actuals = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         boolean errorThrown = false;
         try {
             ArrayAssertions.assertEquals(expecteds, actuals);
@@ -125,7 +125,7 @@ public class DoubleArrayAssertionsTest extends TestCase {
     }
 
     public void testAssertEquals_Double_double_different_length() {
-        Double[] expecteds = new Double[]{new Double(1)};
+        Double[] expecteds = new Double[]{Double.valueOf(1)};
         double[] actuals = new double[]{1, 2};
         boolean errorThrown = false;
         try {
@@ -149,7 +149,7 @@ public class DoubleArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_double_Double_expecteds_is_null() {
         boolean errorThrown = false;
-        Double[] actuals = new Double[]{new Double(1), new Double(2)};
+        Double[] actuals = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         try {
             ArrayAssertions.assertEquals((double[]) null, actuals);
         } catch (AssertionFailedError expected) {
@@ -177,23 +177,23 @@ public class DoubleArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_multi_double_Double() {
         double[][] expecteds = new double[][]{{1, 2}, {1, 2}};
-        Double[][] actuals = new Double[][]{{new Double(1), new Double(2)},
-            {new Double(1), new Double(2)}};
+        Double[][] actuals = new Double[][]{{Double.valueOf(1), Double.valueOf(2)},
+            {Double.valueOf(1), Double.valueOf(2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Double_double() {
-        Double[][] expecteds = new Double[][]{{new Double(1), new Double(2)},
-            {new Double(1), new Double(2)}};
+        Double[][] expecteds = new Double[][]{{Double.valueOf(1), Double.valueOf(2)},
+            {Double.valueOf(1), Double.valueOf(2)}};
         double[][] actuals = new double[][]{{1, 2}, {1, 2}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_multi_Double_Double() {
-        Double[][] expecteds = new Double[][]{{new Double(1), new Double(2)},
-            {new Double(1), new Double(2)}};
-        Double[][] actuals = new Double[][]{{new Double(1), new Double(2)},
-            {new Double(1), new Double(2)}};
+        Double[][] expecteds = new Double[][]{{Double.valueOf(1), Double.valueOf(2)},
+            {Double.valueOf(1), Double.valueOf(2)}};
+        Double[][] actuals = new Double[][]{{Double.valueOf(1), Double.valueOf(2)},
+            {Double.valueOf(1), Double.valueOf(2)}};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
@@ -217,31 +217,31 @@ public class DoubleArrayAssertionsTest extends TestCase {
 
     public void testAssertEquals_OO_double_Double() {
         Object expecteds = new double[]{1, 2};
-        Object actuals = new Double[]{new Double(1), new Double(2)};
+        Object actuals = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Double_double() {
-        Object expecteds = new Double[]{new Double(1), new Double(2)};
+        Object expecteds = new Double[]{Double.valueOf(1), Double.valueOf(2)};
         Object actuals = new double[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_double_Object_array() {
         Object expecteds = new double[]{1, 2};
-        Object actuals = new Object[]{new Double(1), new Double(2)};
+        Object actuals = new Object[]{Double.valueOf(1), Double.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_double() {
-        Object expecteds = new Object[]{new Double(1), new Double(2)};
+        Object expecteds = new Object[]{Double.valueOf(1), Double.valueOf(2)};
         Object actuals = new double[]{1, 2};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 
     public void testAssertEquals_OO_Object_array_Object_array() {
-        Object expecteds = new Object[]{new Double(1), new Double(2)};
-        Object actuals = new Object[]{new Double(1), new Double(2)};
+        Object expecteds = new Object[]{Double.valueOf(1), Double.valueOf(2)};
+        Object actuals = new Object[]{Double.valueOf(1), Double.valueOf(2)};
         ArrayAssertions.assertEquals(expecteds, actuals);
     }
 }

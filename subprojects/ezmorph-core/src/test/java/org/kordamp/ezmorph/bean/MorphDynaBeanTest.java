@@ -165,7 +165,7 @@ public class MorphDynaBeanTest extends TestCase {
         dynaBean.set("bi", new BigInteger("1"));
         dynaBean.set("bd", new BigDecimal("1"));
         dynaBean.set("boolean", Boolean.TRUE);
-        dynaBean.set("char", new Character('a'));
+        dynaBean.set("char", Character.valueOf('a'));
 
         assertEquals(Byte.valueOf("1"), dynaBean.get("byte"));
         assertEquals(Short.valueOf("1"), dynaBean.get("short"));
@@ -176,7 +176,7 @@ public class MorphDynaBeanTest extends TestCase {
         assertEquals(new BigInteger("1"), dynaBean.get("bi"));
         assertEquals(new BigDecimal("1"), dynaBean.get("bd"));
         assertEquals(Boolean.TRUE, dynaBean.get("boolean"));
-        assertEquals(new Character('a'), dynaBean.get("char"));
+        assertEquals(Character.valueOf('a'), dynaBean.get("char"));
     }
 
     public void testGetSet_primitives() {
@@ -187,7 +187,7 @@ public class MorphDynaBeanTest extends TestCase {
         primitiveDynaBean.set("float", Float.valueOf("1"));
         primitiveDynaBean.set("double", Double.valueOf("1"));
         primitiveDynaBean.set("boolean", Boolean.TRUE);
-        primitiveDynaBean.set("char", new Character('a'));
+        primitiveDynaBean.set("char", Character.valueOf('a'));
 
         assertEquals(Byte.valueOf("1"), primitiveDynaBean.get("byte"));
         assertEquals(Short.valueOf("1"), primitiveDynaBean.get("short"));
@@ -196,7 +196,7 @@ public class MorphDynaBeanTest extends TestCase {
         assertEquals(Float.valueOf("1"), primitiveDynaBean.get("float"));
         assertEquals(Double.valueOf("1"), primitiveDynaBean.get("double"));
         assertEquals(Boolean.TRUE, primitiveDynaBean.get("boolean"));
-        assertEquals(new Character('a'), primitiveDynaBean.get("char"));
+        assertEquals(Character.valueOf('a'), primitiveDynaBean.get("char"));
     }
 
     public void testGetSetIndexed_Array() {
