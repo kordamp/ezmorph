@@ -84,6 +84,9 @@ public final class MorphDynaBean implements DynaBean, Serializable {
         MorphDynaBean other = (MorphDynaBean) obj;
         EqualsBuilder builder = new EqualsBuilder().append(this.dynaClass, other.dynaClass);
         DynaProperty[] props = dynaClass.getDynaProperties();
+        if (props.length != other.dynaClass.getDynaProperties().length) {
+            return false;
+        }
         for (int i = 0; i < props.length; i++) {
             DynaProperty prop = props[i];
             builder.append(dynaValues.get(prop.getName()), other.dynaValues.get(prop.getName()));
